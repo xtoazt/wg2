@@ -22,7 +22,7 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
       console.log('[Login] Using API URL:', apiUrl);
       
       const response = await retryManager.fetchWithRetry(
-        apiUrl + "/api/auth-direct",
+        apiUrl + "/api/auth",
         {
           method: "POST",
           headers: {
