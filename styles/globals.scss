@@ -1,45 +1,65 @@
 :root {
-    /* Minimal monochromatic color scheme */
-    --primary: #000000;
-    --primaryDark: #000000;
-    --primaryLight: #333333;
-    --secondary: #666666;
-    --accent: #999999;
-    --background: #ffffff;
-    --surface: #f5f5f5;
-    --border: #e0e0e0;
-    --text: #000000;
-    --textSecondary: #666666;
-    --textMuted: #999999;
+    /* Dark professional color scheme inspired by so-tuff.teamgaming.pw */
+    --primary: #1a1a1a;
+    --primaryDark: #0d0d0d;
+    --primaryLight: #2a2a2a;
+    --secondary: #404040;
+    --accent: #6b7280;
+    --background: #0a0a0a;
+    --surface: #1a1a1a;
+    --surfaceLight: #2a2a2a;
+    --border: #333333;
+    --borderLight: #404040;
+    --text: #ffffff;
+    --textSecondary: #d1d5db;
+    --textMuted: #9ca3af;
+    --textDark: #6b7280;
     
-    /* Gradients - minimal and subtle */
-    --grad1: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 35%, rgba(255,255,255,0) 100%);
-    --gradDown: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 35%, rgba(255,255,255,0) 100%);
-    --gradBottom: linear-gradient(90deg, rgba(0,0,0,1.0) 0%, rgba(0,0,0,0.7) 60%, rgba(255,255,255,0) 100%);
-    --gradTop: linear-gradient(65deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0) 50%);
-    --gradLight: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 57%, rgba(255,255,255,0) 100%);
-    --gradFull: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 57%, rgba(0,0,0,0.03) 100%);
+    /* Professional gradients */
+    --grad1: linear-gradient(135deg, rgba(26,26,26,1) 0%, rgba(13,13,13,0.9) 100%);
+    --gradDown: linear-gradient(180deg, rgba(26,26,26,1) 0%, rgba(13,13,13,0.8) 100%);
+    --gradBottom: linear-gradient(90deg, rgba(26,26,26,1.0) 0%, rgba(13,13,13,0.7) 100%);
+    --gradTop: linear-gradient(0deg, rgba(26,26,26,0.9) 0%, rgba(13,13,13,0.5) 100%);
+    --gradLight: linear-gradient(135deg, rgba(26,26,26,0.3) 0%, rgba(13,13,13,0.1) 100%);
+    --gradFull: linear-gradient(135deg, rgba(26,26,26,0.2) 0%, rgba(13,13,13,0.1) 100%);
     
-    /* Button gradients - minimal */
-    --gradGreenBtn: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 57%, rgba(255, 255, 255, 0) 100%);
+    /* Button gradients - professional */
+    --gradGreenBtn: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(13,13,13,0.7) 100%);
+    --gradButton: linear-gradient(135deg, rgba(42,42,42,1) 0%, rgba(26,26,26,0.9) 100%);
+    --gradButtonHover: linear-gradient(135deg, rgba(64,64,64,1) 0%, rgba(42,42,42,0.9) 100%);
     
     /* Transparent overlays */
-    --primaryTransparent: rgba(0, 0, 0, 0.85);
-    --darkTransparent: rgba(0, 0, 0, 0.4);
+    --primaryTransparent: rgba(13, 13, 13, 0.95);
+    --darkTransparent: rgba(0, 0, 0, 0.8);
+    --glassEffect: rgba(26, 26, 26, 0.8);
 }
 
 
 
 html * {
     margin: 0;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    box-sizing: border-box
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .button,
 button {
-    //box-shadow: 0 0.275rem 1.125rem rgba(0,0,0,.25), inset 0 0.0625rem 0 hsla(0,0%,100%,.2), inset 0 -0.125rem 0 rgba(0,0,0,.3);
     border: none;
+    background: var(--gradButton);
+    color: var(--text);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.button:hover,
+button:hover {
+    background: var(--gradButtonHover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .home {
@@ -2383,14 +2403,15 @@ input[placeholder="Please login to chat"] {
     font-size: 16px !important;
 }
 
-/* Login Modal Styles */
+/* Login Modal Styles - Professional Dark Theme */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2398,114 +2419,135 @@ input[placeholder="Please login to chat"] {
 }
 
 .modal-content {
-    background: var(--background);
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 0;
-    max-width: 400px;
+    max-width: 420px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 24px;
+    padding: 24px 28px;
     border-bottom: 1px solid var(--border);
+    background: var(--grad1);
 }
 
 .modal-header h2 {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--text);
+    letter-spacing: -0.025em;
 }
 
 .modal-close {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
-    color: var(--textSecondary);
-    padding: 0;
-    width: 24px;
-    height: 24px;
+    color: var(--textMuted);
+    padding: 4px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .modal-close:hover {
     color: var(--text);
+    background: var(--surfaceLight);
 }
 
 .login-form {
-    padding: 24px;
+    padding: 28px;
+    background: var(--surface);
 }
 
 .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--text);
+    color: var(--textSecondary);
+    letter-spacing: -0.01em;
 }
 
 .form-group input {
     width: 100%;
-    padding: 12px;
+    padding: 14px 16px;
     border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 15px;
     background: var(--background);
     color: var(--text);
     box-sizing: border-box;
+    transition: all 0.2s ease;
+    font-weight: 400;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    border-color: var(--borderLight);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    background: var(--surfaceLight);
 }
 
 .form-group input:disabled {
     background: var(--surface);
     color: var(--textMuted);
     cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .login-btn {
     width: 100%;
-    padding: 12px;
-    background: var(--primary);
-    color: var(--background);
+    padding: 14px 20px;
+    background: var(--gradButton);
+    color: var(--text);
     border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
+    letter-spacing: -0.01em;
 }
 
 .login-btn:hover:not(:disabled) {
-    background: var(--primaryLight);
+    background: var(--gradButtonHover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .login-btn:disabled {
-    background: var(--textMuted);
+    background: var(--surface);
+    color: var(--textMuted);
     cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
 }
 
 .modal-footer {
-    padding: 16px 24px 24px;
+    padding: 20px 28px 28px;
     text-align: center;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
 }
 
 .switch-mode-btn {
@@ -2514,16 +2556,110 @@ input[placeholder="Please login to chat"] {
     color: var(--textSecondary);
     font-size: 14px;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
 .switch-mode-btn:hover:not(:disabled) {
     color: var(--text);
+    background: var(--surfaceLight);
 }
 
 .switch-mode-btn:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+/* Professional Game Button Styles */
+.gameBtn {
+    background: var(--gradButton) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    padding: 12px 20px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: -0.01em !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.gameBtn:hover {
+    background: var(--gradButtonHover) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--borderLight) !important;
+}
+
+.gameBtn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Account Button Specific Styles */
+.accountBtn {
+    background: var(--gradButton) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    padding: 10px 16px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: -0.01em !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.accountBtn:hover {
+    background: var(--gradButtonHover) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--borderLight) !important;
+}
+
+.accountBtn.loggedIn {
+    background: var(--grad1) !important;
+    border-color: var(--borderLight) !important;
+}
+
+.accountBtn.loggedIn:hover {
+    background: var(--gradButtonHover) !important;
+}
+
+/* Navigation Button Styles */
+.navBtn {
+    background: var(--gradButton) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    letter-spacing: -0.01em !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.navBtn:hover {
+    background: var(--gradButtonHover) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--borderLight) !important;
+}
+
+/* Supporter Button Styles */
+.supporterBtn {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 165, 0, 0.2) 100%) !important;
+    border-color: rgba(255, 215, 0, 0.3) !important;
+    color: #ffd700 !important;
+}
+
+.supporterBtn:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3) 0%, rgba(255, 165, 0, 0.3) 100%) !important;
+    border-color: rgba(255, 215, 0, 0.5) !important;
 }
 
 .react-chatbot-kit-user-chat-message,
