@@ -1665,6 +1665,9 @@ export default function Home({ }) {
         ws.send(JSON.stringify({ type: 'inviteFriend', friendId: id }))
     }
 
+    // Determine if user can send invites (in a private multiplayer game)
+    const canSendInvite = multiplayerState?.inGame && !multiplayerState?.gameData?.public;
+
     useEffect(() => {
         try {
             const streak = gameStorage.getItem("countryStreak");
