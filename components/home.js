@@ -2208,133 +2208,128 @@ export default function Home({ }) {
 
                 {screen == "home" &&
                     <div className={`home__content g2_modal ${screen !== "home" ? "hidden" : "cshown"} `}>
-                        <div className={`g2_nav_ui ${navSlideOut ? 'g2_slide_out' : ''} ${onboardingCompleted !== true ? 'hide' : ''}`} >
-
-
-                            {onboardingCompleted === null ? (
-                                <>
-
-                                </>
-                            ) : (
-                                <>
-
-
-                                    {onboardingCompleted && (
-
-                                        <>
-            <h1 className={`home__title g2_nav_title wg_font ${navSlideOut ? 'g2_slide_out' : ''}`}>WorldGuessr</h1>
-
-            {/* <HomeNotice text={text("maintenanceText1", {date: getMaintenanceDate(), time: getTimeString()})} shown={true} /> */}
-            </>
-
+                        {onboardingCompleted && (
+                            <div className="homepage-container">
+                                <h1 className="homepage-title">WG2</h1>
+                                
+                                <div className="main-buttons">
+                                    <button 
+                                        className="main-button"
+                                        onClick={() => {
+                                            if (loading) return;
+                                            setNavSlideOut(true);
+                                            setMiniMapShown(false);
+                                            setTimeout(() => {
+                                                crazyMidgame(() => setScreen("singleplayer"));
+                                                setNavSlideOut(false);
+                                            }, 300);
+                                        }}
+                                    >
+                                        SinglePlayer
+                                    </button>
+                                    
+                                    <button 
+                                        className="main-button"
+                                        onClick={() => {
+                                            if(!ws || !multiplayerState?.connected) {
+                                                setConnectionErrorModalShown(true);
+                                                return;
+                                            }
+                                            setNavSlideOut(true);
+                                            setTimeout(() => {
+                                                setNavSlideOut(false);
+                                                handleMultiplayerAction("createPrivateGame");
+                                            }, 300);
+                                        }}
+                                    >
+                                        Multiplayer
+                                    </button>
+                                    
+                                    <button 
+                                        className="main-button"
+                                        onClick={() => {
+                                            if(!ws || !multiplayerState?.connected) {
+                                                setConnectionErrorModalShown(true);
+                                                return;
+                                            }
+                                            setNavSlideOut(true);
+                                            setTimeout(() => {
+                                                setNavSlideOut(false);
+                                                handleMultiplayerAction("joinPrivateGame");
+                                            }, 300);
+                                        }}
+                                    >
+                                        Join Game
+                                    </button>
+                                    
+                                    <button 
+                                        className="main-button"
+                                        onClick={() => {
+                                            if(!ws || !multiplayerState?.connected) {
+                                                setConnectionErrorModalShown(true);
+                                                return;
+                                            }
+                                            setNavSlideOut(true);
+                                            setTimeout(() => {
+                                                setNavSlideOut(false);
+                                                handleMultiplayerAction("createPrivateGame");
+                                            }, 300);
+                                        }}
+                                    >
+                                        Create Game
+                                    </button>
+                                </div>
+                                
+                                <div className="secondary-buttons">
+                                    {session?.token?.secret && (
+                                        <button 
+                                            className="secondary-button"
+                                            onClick={() => { handleMultiplayerAction("publicDuel") }}
+                                        >
+                                            {text("rankedDuel")}
+                                        </button>
                                     )}
-
-
-
-                                    {onboardingCompleted && (
-
-                                        <>
-
-                                            <div className="g2_nav_hr"></div>
-                                            <div className="g2_nav_group">
-                                                <button className="g2_nav_text singleplayer"
-
-                                                    onClick={() => {
-                                                            if (loading) return;
-                                                            setNavSlideOut(true);
-                                                            setMiniMapShown(false);
-                                                            setTimeout(() => {
-                                                              crazyMidgame(() => setScreen("singleplayer"));
-                                                              setNavSlideOut(false); // Reset for next use
-                                                            }, 300);
-                                                    }}>
-                                                    {text("singleplayer")}
-                                                </button>
-                                                {/* <span className="bigSpan">{text("playOnline")}</span> */}
-
-                                                {/* <button className="g2_nav_text" aria-label="Duels" onClick={() => { setShowPartyCards(!showPartyCards) }}>{text("duels")}</button> */}
-                                                    { session?.token?.secret && (
-                                                 <button className="g2_nav_text" aria-label="Duels" onClick={() => { handleMultiplayerAction("publicDuel") }}>{text("rankedDuel")}</button>
-                                                    )}
-                                                 <button className="g2_nav_text" aria-label="Duels" onClick={() => { handleMultiplayerAction("unrankedDuel") }}>{
-                                                    session?.token?.secret ? text("unrankedDuel") : text("findDuel")}</button>
-
-
-
-                                            </div>
-                                            <div className="g2_nav_hr"></div>
-
-                                            <div className="g2_nav_group">
-                                                {/*<button className="g2_nav_text" aria-label="Party" onClick={() => { setShowPartyCards(!showPartyCards) }}>{text("privateGame")}</button>*/}
-                                                <button className="g2_nav_text" disabled={maintenance} onClick={() => {
-                                                    if(!ws || !multiplayerState?.connected) {
-                                                        setConnectionErrorModalShown(true);
-                                                        return;
-                                                    }
-
-                                                   setNavSlideOut(true);
-                                                    setTimeout(() => {
-                                                        setNavSlideOut(false); // Reset for next use
-                                                    handleMultiplayerAction("createPrivateGame")
-                                                    }, 300);
-                                                    }}>{text("createGame")}</button>
-                                                <button className="g2_nav_text" disabled={maintenance} onClick={() => {
-                                                    if(!ws || !multiplayerState?.connected) {
-                                                        setConnectionErrorModalShown(true);
-                                                        return;
-                                                    }
-                                                    setNavSlideOut(true);
-                                                    setTimeout(() => {
-                                                        setNavSlideOut(false); // Reset for next use
-                                                        handleMultiplayerAction("joinPrivateGame")
-
-                                                    }, 300);
-
-                                                    }}>{text("joinGame")}</button>
-                                            </div>
-
-                                            <div className="g2_nav_hr"></div>
-
-                                            <div className="g2_nav_group">
-                                                {!process.env.NEXT_PUBLIC_COOLMATH &&
-                                                    <button className="g2_nav_text" aria-label="Community Maps" onClick={() => {
-                                                        setNavSlideOut(true);
-                                                        setTimeout(() => {
-                                                            setNavSlideOut(false); // Reset for next use
-                                                            setMapModal(true);
-                                                        }, 300);
-                                                        }}>{text("communityMaps")}</button>}
-
-                                                {/* Twitch Streamer Link */}
-                                                 {/* <a
-                                                    href="https://kick.com/ulkuemre"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="g2_nav_text"
-                                                    style={{ color: '#ff4444', textDecoration: 'none' }}
-                                                    aria-label="Watch UlkuEmre Live"
-                                                >
-                                                    🔴 Watch UlkuEmre Live
-                                                </a> */}
-
-                                                {inCrazyGames && (
-                                                    <button className="g2_nav_text" aria-label="MapGuessr" onClick={() => {
-                                                        setNavSlideOut(true);
-                                                        setTimeout(() => {
-                                                            setNavSlideOut(false); // Reset for next use
-                                                            setMapGuessrModal(true);
-                                                        }, 300);
-                                                        }}>MapGuessr</button>
-                                                )}
-                                            </div>
-                                        </>
+                                    
+                                    <button 
+                                        className="secondary-button"
+                                        onClick={() => { handleMultiplayerAction("unrankedDuel") }}
+                                    >
+                                        {session?.token?.secret ? text("unrankedDuel") : text("findDuel")}
+                                    </button>
+                                    
+                                    {!process.env.NEXT_PUBLIC_COOLMATH && (
+                                        <button 
+                                            className="secondary-button"
+                                            onClick={() => {
+                                                setNavSlideOut(true);
+                                                setTimeout(() => {
+                                                    setNavSlideOut(false);
+                                                    setMapModal(true);
+                                                }, 300);
+                                            }}
+                                        >
+                                            {text("communityMaps")}
+                                        </button>
                                     )}
-
-                                </>
-                            )}
-                            <br />
-
-                        </div>
+                                    
+                                    {inCrazyGames && (
+                                        <button 
+                                            className="secondary-button"
+                                            onClick={() => {
+                                                setNavSlideOut(true);
+                                                setTimeout(() => {
+                                                    setNavSlideOut(false);
+                                                    setMapGuessrModal(true);
+                                                }, 300);
+                                            }}
+                                        >
+                                            MapGuessr
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
 
                         {/* Footer moved outside of sliding navigation */}
                         <div className={`home__footer ${(screen === "home" && onboardingCompleted === true && !mapModal && !merchModal && !friendsModal && !accountModalOpen && !mapGuessrModal) ? "visible" : ""}`}>
