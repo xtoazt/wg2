@@ -67,6 +67,11 @@ class RetryManager {
   
   shouldRetry(error) {
     // Retry on network errors, timeouts, and 5xx status codes
+    // Don't retry on AbortError if it's "signal is aborted without reason" - this usually means the endpoint doesn't exist
+    if (error.name === 'AbortError' && error.message.includes('signal is aborted without reason')) {
+      return false; // Don't retry if endpoint doesn't exist
+    }
+    
     return (
       error.name === 'AbortError' || // Timeout
       error.name === 'TypeError' || // Network error

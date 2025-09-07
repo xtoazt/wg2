@@ -20,6 +20,8 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
     try {
       // Use window.cConfig if available, otherwise fall back to clientConfig()
       const apiUrl = window.cConfig?.apiUrl || clientConfig().apiUrl;
+      console.log('[Login] Using API URL:', apiUrl);
+      console.log('[Login] Full URL:', apiUrl + "/api/auth");
       
       const response = await retryManager.fetchWithRetry(
         apiUrl + "/api/auth",
@@ -54,7 +56,9 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
       console.error('Auth error:', error);
       
       // Provide more specific error messages
-      if (error.name === 'AbortError') {
+      if (error.name === 'AbortError' && error.message.includes('signal is aborted without reason')) {
+        toast.error('Authentication service is currently unavailable. Please try again later.');
+      } else if (error.name === 'AbortError') {
         toast.error('Request timed out. Please check your connection and try again.');
       } else if (error.message.includes('fetch')) {
         toast.error('Network error. Please check your connection and try again.');

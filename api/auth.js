@@ -133,16 +133,21 @@ async function handleAuth(req, res) {
 }
 
 export default async function handler(req, res) {
+  console.log('[Auth API] Request received:', req.method, req.url);
+  
   // only accept post
   if (req.method !== 'POST') {
+    console.log('[Auth API] Method not allowed:', req.method);
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
   const { action } = req.body;
+  console.log('[Auth API] Action:', action);
   
   if (action === 'login' || action === 'register' || action === 'verify') {
     return handleAuth(req, res);
   } else {
+    console.log('[Auth API] Invalid action:', action);
     return res.status(400).json({ error: 'Invalid action. Use: login, register, or verify' });
   }
 }

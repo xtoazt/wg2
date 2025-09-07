@@ -4333,10 +4333,13 @@ img[alt="Google"] {
 
 @media screen and (max-width: 680px) {
     .friendsModal {
-        width: 100% !important;
-        left: 0 !important;
+        width: 95% !important;
+        max-width: 400px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 10px !important;
+        max-height: 70vh !important;
     }
 }
 

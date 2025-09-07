@@ -76,6 +76,8 @@ export function useSession() {
     window.fetchingSession = true;
 
     console.log(`[Auth] Starting authentication with retry mechanism`);
+    console.log(`[Auth] API URL:`, window.cConfig?.apiUrl);
+    console.log(`[Auth] Full URL:`, window.cConfig?.apiUrl + "/api/auth");
     
     retryManager.fetchWithRetry(
       window.cConfig?.apiUrl + "/api/auth",
