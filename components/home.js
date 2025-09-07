@@ -52,7 +52,8 @@ import WhatsNewModal from "@/components/ui/WhatsNewModal";
 import MapGuessrModal from "@/components/mapGuessrModal";
 import changelog from "@/components/changelog.json";
 import clientConfig from "@/clientConfig";
-import { useGoogleLogin } from "@react-oauth/google";
+import LoginModal from './loginModal';
+import Footer from './footer';
 import haversineDistance from "./utils/haversineDistance";
 import StreetView from "./streetview/streetView";
 import Stats from "stats.js";
@@ -174,55 +175,15 @@ export default function Home({ }) {
 
     }, [options?.ramUsage])
 
-    let login = null;
-    if (process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID) {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        login = useGoogleLogin({
-            onSuccess: tokenResponse => {
-                console.log("[Auth] Starting Google OAuth with retry mechanism");
-
-                retryManager.fetchWithRetry(
-                    clientConfig().apiUrl + "/api/googleAuth",
-                    {
-                        body: JSON.stringify({ code: tokenResponse.code }),
-                        method: "POST",
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    },
-                    'googleAuthLogin'
-                ).then((res) => res.json()).then((data) => {
-                    console.log("[Auth] Google OAuth successful");
-
-                    if (data.secret) {
-                        setSession({ token: data })
-                        window.localStorage.setItem("wg_secret", data.secret)
-                        console.log(`[Auth] Login successful for user:`, data.username);
-                    } else {
-                        console.error("[Auth] No secret received from server");
-                        toast.error("Login error, contact support if this persists (2)")
-                    }
-
-                }).catch((e) => {
-                    console.error("[Auth] Google OAuth failed after all retries:", e.message);
-                    toast.error(`Login failed: ${e.message}. Please try again or contact support.`);
-                })
-            },
-            onError: error => {
-                toast.error("Login error, contact support if this persists")
-                console.log("login error", error);
-            },
-            onNonOAuthError: error => {
-                console.log("login non oauth error", error);
-                toast.error("Login error, contact support if this persists (1)")
-
-            },
-            flow: "auth-code",
-
-        });
-
-        if (typeof window !== "undefined") window.login = login;
-    }
+    // Login modal state
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    
+    // Make login modal accessible globally
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            window.openLoginModal = () => setShowLoginModal(true);
+        }
+    }, []);
 
 
 
@@ -2081,6 +2042,11 @@ export default function Home({ }) {
                 } sendInvite={sendInvite} options={options}
 
             />
+            <LoginModal 
+                isOpen={showLoginModal} 
+                onClose={() => setShowLoginModal(false)} 
+                onLogin={(sessionData) => setSession(sessionData)} 
+            />
             <SetUsernameModal shown={session && session?.token?.secret && !session.token.username} session={session} />
             <SuggestAccountModal shown={showSuggestLoginModal} setOpen={setShowSuggestLoginModal} />
             <DiscordModal shown={showDiscordModal && (typeof window !== 'undefined' && window.innerWidth >= 768)} setOpen={setShowDiscordModal} />
@@ -2702,6 +2668,7 @@ if(window.inCrazyGames) {
                 </Script>
 
                 <WhatsNewModal changelog={changelog} text={text} />
+                <Footer />
             </main>
         </>
     )

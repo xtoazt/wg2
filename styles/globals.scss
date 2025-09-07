@@ -1,32 +1,38 @@
 :root {
-    --r: 20;
-    --g: 65;
-    --b: 25;
-    --gradBottomBase: rgba(var(--r), var(--g), var(--b), 1.0) 0%, rgba(var(--r), var(--g), var(--b), 0.612) 50%, rgba(255,255,255,0) 100%;
-    --gradTopBase: rgba(var(--r), var(--g), var(--b), 0.9) 0%, rgba(255,255,255,0) 50%;
-    --grad1: linear-gradient(90deg, rgba(var(--r), var(--g), var(--b), 1) 0%, rgba(var(--r), var(--g), var(--b), 0.812) 35%, rgba(255,255,255,0) 100%);
-    --gradDown: linear-gradient(0deg, rgba(var(--r), var(--g), var(--b), 1) 0%, rgba(var(--r), var(--g), var(--b), 0.812) 35%, rgba(255,255,255,0) 100%);
-    --gradBottom: linear-gradient(90deg, rgba(var(--r), var(--g), var(--b), 1.0) 0%, rgba(var(--r), var(--g), var(--b), 0.712) 60%, rgba(255,255,255,0) 100%);
-    --gradBottomAngle: linear-gradient(150deg, rgba(var(--r), var(--g), var(--b), 1.0) 0%, rgba(var(--r), var(--g), var(--b), 0.712) 60%, rgba(255,255,255,0) 100%);
-    --gradTop: linear-gradient(65deg, rgba(var(--r), var(--g), var(--b), 0.9) 0%, rgba(255,255,255,0) 50%);
-    --gradDouble: linear-gradient(90deg, rgba(var(--r), var(--g), var(--b), 1) 0%, rgba(var(--r), var(--g), var(--b), 0.6) 15%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(var(--r), var(--g), var(--b), 0.6) 85%, rgba(var(--r), var(--g), var(--b), 1) 100%);
-    --gradLight: linear-gradient(135deg, rgba(var(--r), var(--g), var(--b), 0.52) 0%, rgba(var(--r), var(--g), var(--b), 0.28) 57%, rgba(255,255,255,0) 100%);
-    --gradFull: linear-gradient(135deg, rgba(var(--r), var(--g), var(--b), 0.72) 0%, rgba(var(--r), var(--g), var(--b), 0.38) 57%, rgba(var(--r), var(--g), var(--b), 0.3) 100%);
-    --gradRed: linear-gradient(135deg, rgba(156, 82, 39, 0.9) 0%, rgba(91, 29, 29, 0.9) 31%, rgba(255, 112, 112, 0.9) 100%);
-    --gradBlue: linear-gradient(135deg, rgba(30, 62, 156, 0.9) 0%, rgba(29, 29, 91, 0.9) 31%, rgba(112, 112, 255, 0.9) 100%);
-    --gradGreenBtn: linear-gradient(135deg, rgba(var(--r), var(--g), var(--b), 0.9) 0%, rgba(var(--r), var(--g), var(--b), 0.6) 57%, rgba(255, 255, 255, 0) 100%);
-
-    --primary: #245734;
-    --primaryDark: #112b18;
-    --primaryTransparent: rgb(36, 87, 52, 0.85);
-    --darkTransparent: rgb(0, 0, 0, 0.4);
+    /* Minimal monochromatic color scheme */
+    --primary: #000000;
+    --primaryDark: #000000;
+    --primaryLight: #333333;
+    --secondary: #666666;
+    --accent: #999999;
+    --background: #ffffff;
+    --surface: #f5f5f5;
+    --border: #e0e0e0;
+    --text: #000000;
+    --textSecondary: #666666;
+    --textMuted: #999999;
+    
+    /* Gradients - minimal and subtle */
+    --grad1: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 35%, rgba(255,255,255,0) 100%);
+    --gradDown: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 35%, rgba(255,255,255,0) 100%);
+    --gradBottom: linear-gradient(90deg, rgba(0,0,0,1.0) 0%, rgba(0,0,0,0.7) 60%, rgba(255,255,255,0) 100%);
+    --gradTop: linear-gradient(65deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0) 50%);
+    --gradLight: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 57%, rgba(255,255,255,0) 100%);
+    --gradFull: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 57%, rgba(0,0,0,0.03) 100%);
+    
+    /* Button gradients - minimal */
+    --gradGreenBtn: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 57%, rgba(255, 255, 255, 0) 100%);
+    
+    /* Transparent overlays */
+    --primaryTransparent: rgba(0, 0, 0, 0.85);
+    --darkTransparent: rgba(0, 0, 0, 0.4);
 }
 
 
 
 html * {
     margin: 0;
-    font-family: "Lexend", sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     box-sizing: border-box
 }
 
@@ -37,7 +43,7 @@ button {
 }
 
 .home {
-    background-color: black;
+    background-color: var(--background);
     width: 100vw;
     box-sizing: border-box;
     height: 100vh;
@@ -51,7 +57,8 @@ button {
 body,
 html {
     touch-action: pan-x, pan-y !important;
-    background-color: #000000 !important;
+    background-color: var(--background) !important;
+    color: var(--text);
 }
 
 /* Leaflet map optimizations for sharp rendering */
@@ -2374,6 +2381,149 @@ input[placeholder="Please login to chat"] {
 
 .react-chatbot-kit-chat-input {
     font-size: 16px !important;
+}
+
+/* Login Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0;
+    max-width: 400px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--textSecondary);
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: var(--text);
+}
+
+.login-form {
+    padding: 24px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--background);
+    color: var(--text);
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:disabled {
+    background: var(--surface);
+    color: var(--textMuted);
+    cursor: not-allowed;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: var(--background);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-btn:hover:not(:disabled) {
+    background: var(--primaryLight);
+}
+
+.login-btn:disabled {
+    background: var(--textMuted);
+    cursor: not-allowed;
+}
+
+.modal-footer {
+    padding: 16px 24px 24px;
+    text-align: center;
+}
+
+.switch-mode-btn {
+    background: none;
+    border: none;
+    color: var(--textSecondary);
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.switch-mode-btn:hover:not(:disabled) {
+    color: var(--text);
+}
+
+.switch-mode-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .react-chatbot-kit-user-chat-message,

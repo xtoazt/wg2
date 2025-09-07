@@ -28,22 +28,42 @@ The application now uses 7 consolidated serverless functions instead of 20+ indi
 
 ### Authentication
 ```javascript
-// CrazyGames Auth
+// Login
+fetch('/api/auth', {
+  method: 'POST',
+  body: JSON.stringify({
+    action: 'login',
+    username: 'your_username',
+    password: 'your_password'
+  })
+});
+
+// Register
+fetch('/api/auth', {
+  method: 'POST',
+  body: JSON.stringify({
+    action: 'register',
+    username: 'new_username',
+    password: 'new_password'
+  })
+});
+
+// Verify Session
+fetch('/api/auth', {
+  method: 'POST',
+  body: JSON.stringify({
+    action: 'verify',
+    secret: 'user_secret'
+  })
+});
+
+// CrazyGames Auth (still supported)
 fetch('/api/auth', {
   method: 'POST',
   body: JSON.stringify({
     provider: 'crazygames',
     token: 'crazygames_token',
     username: 'player_name'
-  })
-});
-
-// Google Auth
-fetch('/api/auth', {
-  method: 'POST',
-  body: JSON.stringify({
-    provider: 'google',
-    code: 'google_auth_code'
   })
 });
 ```
@@ -133,6 +153,9 @@ fetch('/api/clues', {
 - All endpoints maintain the same response formats as before
 - Database connections and caching remain unchanged
 - Rate limiting and validation logic is preserved
+- **Authentication System Updated**: Google OAuth removed, replaced with username/password authentication
+- **UI Redesigned**: Minimal monochromatic design with clean, modern interface
+- **Rebranded**: Now called "WG2" with credit to Rohan
 
 ## Deployment Steps
 

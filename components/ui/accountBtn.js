@@ -1,5 +1,4 @@
 import { signIn } from "@/components/auth/auth";
-import { FaGoogle } from "react-icons/fa";
 import { useTranslation } from '@/components/useTranslations'
 import sendEvent from "../utils/sendEvent";
 
@@ -17,24 +16,21 @@ export default function AccountBtn({ session, openAccountModal, navbarMode, inCr
         <button className={`gameBtn ${navbarMode ? 'navBtn' : 'accountBtn'}`} disabled={inCrazyGames} onClick={() => {
           if(session === null) {
             sendEvent("login_attempt")
-            signIn('google')
+            signIn()
           }
           }}>
 
         { !session?.token?.secret && session !== null ? '...' :
         (
-          // <div style="margin-right: 10px; margin-left: 10px; display: flex; align-items: center; justify-content: center;">
           <div style={{marginRight: '10px',marginLeft: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-
             {!inCrazyGames ? (
               <>
-            {text("login")}&nbsp;&nbsp;
-            <FaGoogle className="home__squarebtnicon" />
-            </>
+                {text("login")}
+              </>
             ): (
               <>
-            ...
-            </>
+                ...
+              </>
             )}
           </div>
         )}

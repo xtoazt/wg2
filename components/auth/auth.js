@@ -40,7 +40,6 @@ export function signOut() {
 export function signIn() {
   console.log("Signing in");
 
-
   if(inIframe()) {
     console.log("In iframe");
     // open site in new window
@@ -48,13 +47,10 @@ export function signIn() {
     window.open(url, '_blank');
   }
 
-  if(!process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID) {
-    toast.error("Google client ID not set");
-    return;
+  // Open login modal instead of Google OAuth
+  if (window.openLoginModal) {
+    window.openLoginModal();
   }
-
-    window.login();
-
 }
 
 export function useSession() {
@@ -91,15 +87,15 @@ export function useSession() {
     console.log(`[Auth] Starting authentication with retry mechanism`);
     
     retryManager.fetchWithRetry(
-      window.cConfig?.apiUrl + "/api/googleAuth",
+      window.cConfig?.apiUrl + "/api/auth",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ secret }),
+        body: JSON.stringify({ action: 'verify', secret }),
       },
-      'googleAuth'
+      'auth'
     )
       .then((res) => res.json())
       .then((data) => {
@@ -135,7 +131,7 @@ export function useSession() {
         session = null;
         
         // Show user-friendly error after all retries exhausted
-        if (retryManager.getRetryCount('googleAuth') >= 5) {
+        if (retryManager.getRetryCount('auth') >= 5) {
           toast.error('Connection issues detected. Please refresh the page if problems persist.');
         }
       });
