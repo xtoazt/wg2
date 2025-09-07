@@ -60,9 +60,9 @@ export default function PresetMessages({ onSendMessage, disabled = false }) {
           onClick={handleScrollToBottom}
           disabled={disabled}
           style={{
-            background: 'var(--gradient-primary)',
-            borderColor: 'var(--accent)',
-            color: 'white'
+            background: 'var(--gradButton)',
+            borderColor: 'var(--border)',
+            color: 'var(--text)'
           }}
         >
           Custom Message

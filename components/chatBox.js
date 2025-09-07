@@ -149,24 +149,22 @@ export default function ChatBox({ ws, open, onToggle, enabled, myId, inGame, min
         <button
         className={`chatboxBtn ${open ? 'open' : ''} ${miniMapShown ? 'minimap' : ''}`} 
         style={{ 
-          fontSize: '14px', 
-          fontWeight: 'var(--font-weight-semibold)', 
+          fontSize: '16px', 
+          fontWeight: 'bold', 
           color: 'white', 
-          background: 'var(--gradient-primary)', 
-          border: '1px solid var(--accent)', 
-          borderRadius: 'var(--radius-md)', 
-          padding: 'var(--space-sm) var(--space-md)', 
-          cursor: 'pointer',
-          transition: 'all var(--transition-fast)',
-          boxShadow: 'var(--shadow-sm)'
+          background: 'green', 
+          border: 'none', 
+          borderRadius: '5px', 
+          padding: '10px 20px', 
+          cursor: 'pointer' 
         }} 
         onClick={onToggle}>
           {open ? <FaXmark onClick={onToggle} /> : `${text("chat")}${unreadCount > 0 ? ` (${unreadCount})` : ''}`}
         </button>
       )}
       <div className={`chatbox ${open ? 'open' : ''}`}>
-        {inGame && !notGuestChatDisabled && (
-          <div style={{ padding: 'var(--space-md)', borderBottom: '1px solid var(--border)' }}>
+        {inGame && !notGuestChatDisabled && enabled && (
+          <div style={{ padding: '10px', borderBottom: '1px solid var(--border)' }}>
             <PresetMessages 
               onSendMessage={(message) => {
                 if (ws) {
