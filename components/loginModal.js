@@ -18,8 +18,11 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
 
     setLoading(true);
     try {
+      // Use window.cConfig if available, otherwise fall back to clientConfig()
+      const apiUrl = window.cConfig?.apiUrl || clientConfig().apiUrl;
+      
       const response = await retryManager.fetchWithRetry(
-        clientConfig().apiUrl + "/api/auth",
+        apiUrl + "/api/auth",
         {
           method: "POST",
           headers: {
@@ -49,7 +52,15 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
       }
     } catch (error) {
       console.error('Auth error:', error);
-      toast.error('Authentication failed. Please try again.');
+      
+      // Provide more specific error messages
+      if (error.name === 'AbortError') {
+        toast.error('Request timed out. Please check your connection and try again.');
+      } else if (error.message.includes('fetch')) {
+        toast.error('Network error. Please check your connection and try again.');
+      } else {
+        toast.error('Authentication failed. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

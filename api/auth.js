@@ -8,9 +8,15 @@ async function handleAuth(req, res) {
   // Connect to MongoDB
   if (mongoose.connection.readyState !== 1) {
     try {
+      if (!process.env.MONGODB) {
+        console.error('MONGODB environment variable not set');
+        return res.status(500).json({ error: 'Database configuration missing' });
+      }
       await mongoose.connect(process.env.MONGODB);
+      console.log('MongoDB connected successfully');
     } catch (error) {
-      return res.status(500).json({ error: 'Database connection failed' });
+      console.error('MongoDB connection error:', error);
+      return res.status(500).json({ error: 'Database connection failed: ' + error.message });
     }
   }
 

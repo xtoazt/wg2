@@ -109,12 +109,14 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
             zIndex: 100,
             background: 'var(--background)',
             color: 'var(--text)',
-            padding: '20px',
+            padding: '15px',
             borderRadius: '10px',
             fontFamily: '"Kode Mono", monospace',
             textAlign: 'center',
-            width: '100%',
-            height: '100%',
+            width: '90%',
+            maxWidth: '500px',
+            maxHeight: '80vh',
+            overflow: 'auto',
             border: '2px solid var(--border)',
         }} className="friendsModal" open={shown} center onClose={onClose}>
 
@@ -132,22 +134,22 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
 
                         {/* Add Friend Section */}
                         <div style={{ 
-                            marginBottom: '30px', 
-                            padding: '20px', 
+                            marginBottom: '20px', 
+                            padding: '15px', 
                             background: 'var(--surface)', 
-                            borderRadius: '10px',
+                            borderRadius: '8px',
                             border: '1px solid var(--border)'
                         }}>
                             <h3 style={{ 
                                 color: 'var(--text)', 
-                                marginBottom: '15px',
+                                marginBottom: '10px',
                                 fontFamily: '"Kode Mono", monospace',
-                                fontSize: '1.2rem'
+                                fontSize: '1rem'
                             }}>{text("addFriend")}</h3>
                             <p style={{ 
-                                fontSize: '0.9rem', 
+                                fontSize: '0.8rem', 
                                 color: 'var(--textSecondary)', 
-                                marginBottom: '15px' 
+                                marginBottom: '10px' 
                             }}>
                                 {text("addFriendDescription")}
                             </p>
@@ -197,10 +199,10 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
 
                         {/* Friend Request Settings */}
                         <div style={{ 
-                            marginBottom: '30px', 
-                            padding: '15px', 
+                            marginBottom: '20px', 
+                            padding: '10px', 
                             background: 'var(--surface)', 
-                            borderRadius: '10px',
+                            borderRadius: '8px',
                             border: '1px solid var(--border)'
                         }}>
                             <div style={{ marginBottom: '15px' }}>
