@@ -1,6 +1,6 @@
 import HeadContent from "@/components/headContent";
 import { FaGithub } from "react-icons/fa";
-import { FaArrowRotateRight, FaGear, FaRankingStar, FaUserFriends } from "react-icons/fa6";
+import { FaArrowRotateRight, FaGear, FaRankingStar, FaUsers } from "react-icons/fa6";
 import { signOut, useSession } from "@/components/auth/auth";
 import retryManager from "@/components/utils/retryFetch";
 import 'react-responsive-modal/styles.css';
@@ -2366,7 +2366,7 @@ export default function Home({ }) {
                                     </>
                                 )}
 
-                                <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Friends" onClick={() => setFriendsModal(true)}><FaUserFriends className="home__squarebtnicon" /></button>
+                                <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Friends" onClick={() => setFriendsModal(true)}><FaUsers className="home__squarebtnicon" /></button>
                                 <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Settings" onClick={() => setSettingsModal(true)}><FaGear className="home__squarebtnicon" /></button>
                             </div>
                         </div>
