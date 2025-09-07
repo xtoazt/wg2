@@ -26,7 +26,7 @@ The application now uses 7 consolidated serverless functions instead of 20+ indi
 
 ## Usage Examples
 
-### Authentication
+### Authentication (Pure MongoDB)
 ```javascript
 // Login
 fetch('/api/auth', {
@@ -54,16 +54,6 @@ fetch('/api/auth', {
   body: JSON.stringify({
     action: 'verify',
     secret: 'user_secret'
-  })
-});
-
-// CrazyGames Auth (still supported)
-fetch('/api/auth', {
-  method: 'POST',
-  body: JSON.stringify({
-    provider: 'crazygames',
-    token: 'crazygames_token',
-    username: 'player_name'
   })
 });
 ```
@@ -153,7 +143,8 @@ fetch('/api/clues', {
 - All endpoints maintain the same response formats as before
 - Database connections and caching remain unchanged
 - Rate limiting and validation logic is preserved
-- **Authentication System Updated**: Google OAuth removed, replaced with username/password authentication
+- **Authentication System Simplified**: Removed Google OAuth and CrazyGames, using pure MongoDB username/password authentication
+- **External Integrations Removed**: Removed Discord, YouTube, and other external platform integrations
 - **UI Redesigned**: Minimal monochromatic design with clean, modern interface
 - **Rebranded**: Now called "WG2" with credit to Rohan
 

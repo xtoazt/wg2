@@ -1,6 +1,6 @@
 import HeadContent from "@/components/headContent";
-import { FaDiscord, FaGithub } from "react-icons/fa";
-import { FaArrowRotateRight, FaGear, FaRankingStar, FaYoutube } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa";
+import { FaArrowRotateRight, FaGear, FaRankingStar } from "react-icons/fa6";
 import { signOut, useSession } from "@/components/auth/auth";
 import retryManager from "@/components/utils/retryFetch";
 import 'react-responsive-modal/styles.css';
@@ -45,7 +45,6 @@ import officialCountryMaps from "@/public/officialCountryMaps.json";
 
 import fixBranding from "@/components/utils/fixBranding";
 import gameStorage from "@/components/utils/localStorage";
-import DiscordModal from "@/components/discordModal";
 import MerchModal from "@/components/merchModal";
 import AlertModal from "@/components/ui/AlertModal";
 import WhatsNewModal from "@/components/ui/WhatsNewModal";
@@ -404,7 +403,6 @@ export default function Home({ }) {
     const [countryGuesserCorrect, setCountryGuesserCorrect] = useState(false);
 
     const [showSuggestLoginModal, setShowSuggestLoginModal] = useState(false);
-    const [showDiscordModal, setShowDiscordModal] = useState(false);
     const [singlePlayerRound, setSinglePlayerRound] = useState(null);
     const [partyModalShown, setPartyModalShown] = useState(false);
     const [selectCountryModalShown, setSelectCountryModalShown] = useState(false);
@@ -1324,7 +1322,6 @@ export default function Home({ }) {
                 setFriendsModal(false);
                 setMerchModal(false);
                 setShowSuggestLoginModal(false);
-                setShowDiscordModal(false);
                 setSelectCountryModalShown(false);
                 setConnectionErrorModalShown(false);
 
@@ -2049,7 +2046,6 @@ export default function Home({ }) {
             />
             <SetUsernameModal shown={session && session?.token?.secret && !session.token.username} session={session} />
             <SuggestAccountModal shown={showSuggestLoginModal} setOpen={setShowSuggestLoginModal} />
-            <DiscordModal shown={showDiscordModal && (typeof window !== 'undefined' && window.innerWidth >= 768)} setOpen={setShowDiscordModal} />
             {/* <MerchModal shown={merchModal} onClose={() => setMerchModal(false)} session={session} /> */}
             <MapGuessrModal isOpen={mapGuessrModal} onClose={() => setMapGuessrModal(false)} />
             {ChatboxMemo}
@@ -2345,22 +2341,7 @@ export default function Home({ }) {
                             <div className="footer_btns">
                                 {!isApp && !inCoolMathGames && (
                                     <>
-                                        <Link target="_blank" href={"https://discord.gg/ubdJHjKtrC"}><button className="g2_hover_effect home__squarebtn gameBtn g2_container discord" aria-label="Discord"><FaDiscord className="home__squarebtnicon" /></button></Link>
-
-                                        {!inCrazyGames && (
-                                            <>
-                                                <Link target="_blank" href={"https://www.youtube.com/@worldguessr?sub_confirmation=1"}><button className="g2_hover_effect home__squarebtn gameBtn g2_container youtube" aria-label="Youtube"><FaYoutube className="home__squarebtnicon" /></button></Link>
-                                                <Link target="_blank" className="desktop" href={"https://www.coolmathgames.com/0-worldguessr"}><button className="g2_hover_effect home__squarebtn gameBtn g2_container_full" aria-label="CoolmathGames">
-                                                    {/* Todo; include coolmath logo here; url is /cmlogo.png*/}
-
-                                                    <NextImage.default src={'/cmlogo.png'} draggable={false} fill alt="Coolmath Games Logo" className="home__squarebtnicon" />
-
-                                                    </button>
-                                                </Link>
-
-                                                <Link target="_blank" href={"https://github.com/codergautam/worldguessr"}><button className="g2_hover_effect home__squarebtn gameBtn g2_container_full" aria-label="Github"><FaGithub className="home__squarebtnicon" /></button></Link>
-                                            </>
-                                        )}
+                                        {/* Removed external integrations - keeping only game features and Rohan's branding */}
                                         <Link href={"/leaderboard" + (inCrazyGames ? "?crazygames" : "")}>
 
                                             <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Leaderboard"><FaRankingStar className="home__squarebtnicon" /></button></Link>
@@ -2455,7 +2436,7 @@ export default function Home({ }) {
                     <GameUI
                         inCoolMathGames={inCoolMathGames}
                         miniMapShown={miniMapShown} setMiniMapShown={setMiniMapShown}
-                        singlePlayerRound={singlePlayerRound} setSinglePlayerRound={setSinglePlayerRound} showDiscordModal={showDiscordModal} setShowDiscordModal={setShowDiscordModal} inCrazyGames={inCrazyGames} showPanoOnResult={showPanoOnResult} setShowPanoOnResult={setShowPanoOnResult} options={options} countryStreak={countryStreak} setCountryStreak={setCountryStreak} hintShown={hintShown} setHintShown={setHintShown} pinPoint={pinPoint} setPinPoint={setPinPoint} showAnswer={showAnswer} setShowAnswer={setShowAnswer} loading={loading} setLoading={setLoading} session={session} gameOptionsModalShown={gameOptionsModalShown} setGameOptionsModalShown={setGameOptionsModalShown} latLong={latLong} loadLocation={loadLocation} gameOptions={gameOptions} setGameOptions={setGameOptions} />
+                        singlePlayerRound={singlePlayerRound} setSinglePlayerRound={setSinglePlayerRound} inCrazyGames={inCrazyGames} showPanoOnResult={showPanoOnResult} setShowPanoOnResult={setShowPanoOnResult} options={options} countryStreak={countryStreak} setCountryStreak={setCountryStreak} hintShown={hintShown} setHintShown={setHintShown} pinPoint={pinPoint} setPinPoint={setPinPoint} showAnswer={showAnswer} setShowAnswer={setShowAnswer} loading={loading} setLoading={setLoading} session={session} gameOptionsModalShown={gameOptionsModalShown} setGameOptionsModalShown={setGameOptionsModalShown} latLong={latLong} loadLocation={loadLocation} gameOptions={gameOptions} setGameOptions={setGameOptions} />
                 </div>}
 
                 {screen === "onboarding" && (onboarding?.round || onboarding?.completed) && <div className="home__onboarding">

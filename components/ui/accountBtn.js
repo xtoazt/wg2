@@ -6,14 +6,12 @@ export default function AccountBtn({ session, openAccountModal, navbarMode, inCr
   const { t: text } = useTranslation("common");
 
 
-  if(inCrazyGames && (!session || !session?.token?.secret)) {
-    return null;
-  }
+  // Removed CrazyGames integration
 
   return (
     <>
     {!session || !session?.token?.secret ? (
-        <button className={`gameBtn ${navbarMode ? 'navBtn' : 'accountBtn'}`} disabled={inCrazyGames} onClick={() => {
+        <button className={`gameBtn ${navbarMode ? 'navBtn' : 'accountBtn'}`} onClick={() => {
           if(session === null) {
             sendEvent("login_attempt")
             signIn()
@@ -23,15 +21,7 @@ export default function AccountBtn({ session, openAccountModal, navbarMode, inCr
         { !session?.token?.secret && session !== null ? '...' :
         (
           <div style={{marginRight: '10px',marginLeft: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            {!inCrazyGames ? (
-              <>
-                {text("login")}
-              </>
-            ): (
-              <>
-                ...
-              </>
-            )}
+            {text("login")}
           </div>
         )}
         </button>
