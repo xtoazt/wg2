@@ -2330,9 +2330,11 @@ export default function Home({ }) {
                             </div>
                         )}
                     </div>
+                )}
 
-                        {/* Footer moved outside of sliding navigation */}
-                        <div className={`home__footer ${(screen === "home" && onboardingCompleted === true && !mapModal && !merchModal && !friendsModal && !accountModalOpen && !mapGuessrModal) ? "visible" : ""}`}>
+                {/* Footer moved outside of sliding navigation */}
+                {screen === "home" && (
+                    <div className={`home__footer ${(onboardingCompleted === true && !mapModal && !merchModal && !friendsModal && !accountModalOpen && !mapGuessrModal) ? "visible" : ""}`}>
                             <div className="footer_btns">
                                 {!isApp && !inCoolMathGames && (
                                     <>
@@ -2346,6 +2348,7 @@ export default function Home({ }) {
                                 <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Settings" onClick={() => setSettingsModal(true)}><FaGear className="home__squarebtnicon" /></button>
                             </div>
                         </div>
+                )}
 
                         <div className="g2_content g2_content_margin g2_slide_in" style={{ display: "flex", gap: "20px", flexDirection: "column" }}>
                             {/*
