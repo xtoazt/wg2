@@ -12,12 +12,17 @@ async function handleAuth(req, res) {
         console.error('MONGODB environment variable not set');
         return res.status(500).json({ error: 'Database configuration missing' });
       }
+      console.log('Attempting to connect to MongoDB...');
+      console.log('MongoDB URI (masked):', process.env.MONGODB.replace(/\/\/.*@/, '//***:***@'));
       await mongoose.connect(process.env.MONGODB);
       console.log('MongoDB connected successfully');
     } catch (error) {
       console.error('MongoDB connection error:', error);
+      console.error('MongoDB connection error details:', error.message);
       return res.status(500).json({ error: 'Database connection failed: ' + error.message });
     }
+  } else {
+    console.log('MongoDB already connected');
   }
 
   const { username, password, action } = req.body;
@@ -134,6 +139,7 @@ async function handleAuth(req, res) {
 
 export default async function handler(req, res) {
   console.log('[Auth API] Request received:', req.method, req.url);
+  console.log('[Auth API] Request body:', JSON.stringify(req.body, null, 2));
   
   // only accept post
   if (req.method !== 'POST') {
@@ -145,7 +151,13 @@ export default async function handler(req, res) {
   console.log('[Auth API] Action:', action);
   
   if (action === 'login' || action === 'register' || action === 'verify') {
-    return handleAuth(req, res);
+    try {
+      return await handleAuth(req, res);
+    } catch (error) {
+      console.error('[Auth API] Error in handleAuth:', error);
+      console.error('[Auth API] Error stack:', error.stack);
+      return res.status(500).json({ error: 'Internal server error: ' + error.message });
+    }
   } else {
     console.log('[Auth API] Invalid action:', action);
     return res.status(400).json({ error: 'Invalid action. Use: login, register, or verify' });
