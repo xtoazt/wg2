@@ -43,9 +43,7 @@ const nextConfig = {
         ];
     },
     // Vercel-specific configuration
-    experimental: {
-        serverComponentsExternalPackages: ['mongoose']
-    },
+    serverExternalPackages: ['mongoose'],
     // assetPrefix: './', we cant use this because it breaks dynamic paths (https://nextjs.org/docs/app/api-reference/config/next-config-js/assetPrefix)
 };
 
