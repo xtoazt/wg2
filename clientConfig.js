@@ -4,8 +4,8 @@ export default function config() {
 const prefixHttp = (isHttps ? "https" : "http")+"://";
 const prefixWs = (isHttps ? "wss" : "ws")+"://";
 
-  // Use current domain for API calls (Next.js API routes)
-  const apiUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  // Use the correct API URL
+  const apiUrl = 'https://api.worldguessr.com';
 
   return {
   "apiUrl": apiUrl,
