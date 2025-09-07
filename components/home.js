@@ -30,7 +30,6 @@ import OnboardingText from "@/components/onboardingText";
 const RoundOverScreen = dynamic(() => import('@/components/roundOverScreen'), { ssr: false });
 import msToTime from "@/components/msToTime";
 import SuggestAccountModal from "@/components/suggestAccountModal";
-import FriendsModal from "@/components/friendModal";
 import { toast, ToastContainer } from "react-toastify";
 import InfoModal from "@/components/infoModal";
 import { inIframe, isForbiddenIframe } from "@/components/utils/inIframe";
@@ -108,7 +107,6 @@ export default function Home({ }) {
     const [countryStreak, setCountryStreak] = useState(0)
     const [settingsModal, setSettingsModal] = useState(false)
     const [mapModal, setMapModal] = useState(false)
-    const [friendsModal, setFriendsModal] = useState(false)
     const [merchModal, setMerchModal] = useState(false)
     const [mapGuessrModal, setMapGuessrModal] = useState(false)
     const [timeOffset, setTimeOffset] = useState(0)
@@ -120,10 +118,6 @@ export default function Home({ }) {
     const [accountModalPage, setAccountModalPage] = useState("profile");
     const [mapModalClosing, setMapModalClosing] = useState(false);
     
-    // Friend system state
-    const [friends, setFriends] = useState([]);
-    const [sentRequests, setSentRequests] = useState([]);
-    const [receivedRequests, setReceivedRequests] = useState([]);
 
     useEffect(() => {
       let hideInt = setInterval(() => {
@@ -1324,7 +1318,6 @@ export default function Home({ }) {
                 setGameOptionsModalShown(false);
                 setSettingsModal(false);
                 setMapModal(false);
-                setFriendsModal(false);
                 setMerchModal(false);
                 setShowSuggestLoginModal(false);
                 setSelectCountryModalShown(false);
@@ -1660,13 +1653,6 @@ export default function Home({ }) {
         ws.send(JSON.stringify({ type: "place", latLong: pinpointLatLong, final: true }))
     }
 
-    function sendInvite(id) {
-        if (!ws || !multiplayerState?.connected) return;
-        ws.send(JSON.stringify({ type: 'inviteFriend', friendId: id }))
-    }
-
-    // Determine if user can send invites (in a private multiplayer game)
-    const canSendInvite = multiplayerState?.inGame && !multiplayerState?.gameData?.public;
 
     useEffect(() => {
         try {
@@ -2041,10 +2027,7 @@ export default function Home({ }) {
 
             <AccountModal inCrazyGames={inCrazyGames} shown={accountModalOpen} session={session} setAccountModalOpen={setAccountModalOpen}
                 eloData={eloData} accountModalPage={accountModalPage} setAccountModalPage={setAccountModalPage}
-                ws={ws} canSendInvite={
-                    // send invite if in a private multiplayer game, dont need to be host or in game waiting just need to be in a Party
-                    multiplayerState?.inGame && !multiplayerState?.gameData?.public
-                } sendInvite={sendInvite} options={options}
+                ws={ws} options={options}
 
             />
             <LoginModal 
@@ -2056,22 +2039,6 @@ export default function Home({ }) {
             <SuggestAccountModal shown={showSuggestLoginModal} setOpen={setShowSuggestLoginModal} />
             {/* <MerchModal shown={merchModal} onClose={() => setMerchModal(false)} session={session} /> */}
             <MapGuessrModal isOpen={mapGuessrModal} onClose={() => setMapGuessrModal(false)} />
-            <FriendsModal 
-                shown={friendsModal} 
-                onClose={() => setFriendsModal(false)} 
-                session={session}
-                ws={ws}
-                canSendInvite={canSendInvite}
-                sendInvite={sendInvite}
-                accountModalPage={accountModalPage}
-                setAccountModalPage={setAccountModalPage}
-                friends={friends}
-                setFriends={setFriends}
-                sentRequests={sentRequests}
-                setSentRequests={setSentRequests}
-                receivedRequests={receivedRequests}
-                setReceivedRequests={setReceivedRequests}
-            />
             {ChatboxMemo}
             <ToastContainer pauseOnFocusLoss={false} />
 
@@ -2185,7 +2152,6 @@ export default function Home({ }) {
                     maintenance={maintenance}
                     inCrazyGames={inCrazyGames}
                     loading={loading}
-                    onFriendsPress={() => { setAccountModalOpen(true); setAccountModalPage("list"); }}
                     loginQueued={loginQueued}
                     setLoginQueued={setLoginQueued}
                     inGame={multiplayerState?.inGame || screen === "singleplayer"}
@@ -2306,12 +2272,19 @@ export default function Home({ }) {
                                 
                                 <div className="secondary-buttons">
                                     {session?.token?.secret && (
-                                        <button 
-                                            className="secondary-button"
-                                            onClick={() => { handleMultiplayerAction("publicDuel") }}
-                                        >
-                                            {text("rankedDuel")}
-                                        </button>
+                                        <>
+                                            <button 
+                                                className="secondary-button"
+                                                onClick={() => { handleMultiplayerAction("publicDuel") }}
+                                            >
+                                                {text("rankedDuel")}
+                                            </button>
+                                            
+                                            <Link href="/friends" className="secondary-button friends-button">
+                                                <FaUsers />
+                                                Friends
+                                            </Link>
+                                        </>
                                     )}
                                     
                                     <button 
@@ -2358,7 +2331,7 @@ export default function Home({ }) {
 
                 {/* Footer moved outside of sliding navigation */}
                 {screen === "home" && (
-                    <div className={`home__footer ${(onboardingCompleted === true && !mapModal && !merchModal && !friendsModal && !accountModalOpen && !mapGuessrModal) ? "visible" : ""}`}>
+                    <div className={`home__footer ${(onboardingCompleted === true && !mapModal && !merchModal && !accountModalOpen && !mapGuessrModal) ? "visible" : ""}`}>
                             <div className="footer_btns">
                                 {!isApp && !inCoolMathGames && (
                                     <>
@@ -2369,7 +2342,6 @@ export default function Home({ }) {
                                     </>
                                 )}
 
-                                <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Friends" onClick={() => setFriendsModal(true)}><FaUsers className="home__squarebtnicon" /></button>
                                 <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Settings" onClick={() => setSettingsModal(true)}><FaGear className="home__squarebtnicon" /></button>
                             </div>
                         </div>

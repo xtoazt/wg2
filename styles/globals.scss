@@ -5565,6 +5565,17 @@ div:hover .elo-badge {
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
+.friends-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.friends-button svg {
+    font-size: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .homepage-title {
