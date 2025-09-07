@@ -3,24 +3,24 @@
   "description": "The #1 free alternative to GeoGuessr, enjoy unlimited games and play to your hearts content! Engage in the fun of discovering new places and learn geography.",
   "dir": "ltr",
   "display": "fullscreen",
-  "name": "WG2",
+  "name": "atlas.",
   "orientation": "portrait",
   "scope": "/",
-  "short_name": "WG2",
+  "short_name": "atlas.",
   "start_url": "/",
   "theme_color": "#164785",
   "icons": [
     {
-      "src": "/icon.ico",
-      "type": "image/x-icon"
+      "src": "/atlas-favicon.svg",
+      "type": "image/svg+xml"
     },
     {
-      "src": "/icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/atlas-logo.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
     }
   ],
-  "id": "wg2",
+  "id": "atlas",
   "display_override": [
     "fullscreen",
     "window-controls-overlay"

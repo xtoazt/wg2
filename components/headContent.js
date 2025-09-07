@@ -115,7 +115,7 @@ ads.js"></script>*/
     />
 
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, user-scalable=no"/>
-    <link rel="icon" type="image/x-icon" href="/icon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/atlas-favicon.svg" />
 <meta name="google-site-verification" content="7s9wNJJCXTQqp6yr1GiQxREhloXKjtlbOIPTHZhtY04" />
 <meta name="yandex-verification" content="2eb7e8ef6fb55e24" />
 
@@ -132,7 +132,7 @@ ads.js"></script>*/
 
 
     <meta property="og:image" content="/icon_144x144.png" />
-    <meta property="og:url" content="https://wg2.com" />
+    <meta property="og:url" content="https://atlas.com" />
     <meta property="og:type" content="website" />
 </Head>
   )

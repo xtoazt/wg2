@@ -35,7 +35,7 @@ export default function Footer() {
           e.target.style.color = 'white';
         }}
       >
-        WG2
+        atlas.
       </button>
       
       {isOpen && (
@@ -54,7 +54,7 @@ export default function Footer() {
           fontFamily: '"Kode Mono", monospace',
           boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
         }}>
-          Made by Rohan
+          atlas. by Rohan
         </div>
       )}
     </div>
