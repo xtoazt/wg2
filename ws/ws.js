@@ -208,8 +208,8 @@ function stop(reason) {
     playersArr.push(player.toJSON());
   }
   try {
-  console.log('Saving gamestate before stopping',tmpdir() + `/gamestate.worldguessr`);
-  fs.writeFileSync(tmpdir() + `/gamestate.worldguessr`, JSON.stringify({ games: gamesArr, players: playersArr,
+  console.log('Saving gamestate before stopping',tmpdir() + `/gamestate.atlas`);
+  fs.writeFileSync(tmpdir() + `/gamestate.atlas`, JSON.stringify({ games: gamesArr, players: playersArr,
     time: Date.now() }));
     console.log("Stored ", gamesArr.length, " games and ", playersArr.length, " players");
   } catch(e) {
@@ -263,7 +263,7 @@ app.get('/', (res, req) => {
   setCorsHeaders(res);
   res.writeHeader('Content-Type', 'text/html');
   res.writeStatus('200 OK');
-  res.end("WorldGuessr - Powered by uWebSockets.js<br>Headers: "+headerKb.toFixed(2)+'kb');
+  res.end("Atlas - Powered by uWebSockets.js<br>Headers: "+headerKb.toFixed(2)+'kb');
 });
 
 // maintenance mode
@@ -1129,9 +1129,9 @@ app.ws('/wg', {
 
 
 
-// check if gamestate can be recovered from os.tmpdir+gamestate.worldguessr
+// check if gamestate can be recovered from os.tmpdir+gamestate.atlas
 try {
-  const gamestate = JSON.parse(fs.readFileSync(tmpdir() + `/gamestate.worldguessr`));
+  const gamestate = JSON.parse(fs.readFileSync(tmpdir() + `/gamestate.atlas`));
   if (gamestate && Date.now() - gamestate.time < 1000 * 60) {
     console.log('Recovered gamestate', gamestate.games.length, 'games', gamestate.players.length, 'players', currentDate());
     console.error('Recovered gamestate', gamestate.games.length, 'games', gamestate.players.length, 'players', currentDate()); // so it shows up in the error log after a crash
@@ -1155,7 +1155,7 @@ try {
     console.log('Recovered gamestate successfully');
     // remove the file
 
-    fs.unlinkSync(tmpdir() + `/gamestate.worldguessr`);
+    fs.unlinkSync(tmpdir() + `/gamestate.atlas`);
 
   }
 } catch(e) {

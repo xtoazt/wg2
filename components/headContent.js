@@ -10,7 +10,7 @@ export default function HeadContent({text,inCoolMathGames}) {
 
   // start adinplay script
     // const scriptAp = document.createElement('script');
-    // scriptAp.src = "https://api.adinplay.com/libs/aiptag/pub/SWT/worldguessr.com/tag.min.js";
+    // scriptAp.src = "https://api.adinplay.com/libs/aiptag/pub/SWT/atlas.com/tag.min.js";
     // scriptAp.async = true;
     // document.body.appendChild(scriptAp);
     // end adinplay script

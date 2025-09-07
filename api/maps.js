@@ -102,7 +102,7 @@ async function validateMap(name, data, description_short, description_long, edit
     return 'Need at least ' + mapConst.MIN_LOCATIONS + ' valid locations (got ' + (locationsData?.length ?? 0)+ ')';
   }
   if(locationsData.length > mapConst.MAX_LOCATIONS) {
-    return `To make a map with more than ${mapConst.MAX_LOCATIONS} locations, please contact us at gautam@worldguessr.com`
+    return `To make a map with more than ${mapConst.MAX_LOCATIONS} locations, please contact us at gautam@atlas.com`
   }
 
   // Convert all locations to Cartesian coordinates
@@ -192,7 +192,7 @@ async function getMapHome(req, res) {
 
   response.countryMaps = Object.values(officialCountryMaps).map((map) => ({
     ...map,
-    created_by_name: 'WorldGuessr',
+    created_by_name: 'Atlas',
     official: true,
     countryMap: map.countryCode,
     description_short: map.shortDescription,
@@ -296,7 +296,7 @@ async function getPublicMapData(req, res) {
         ...cntryMap,
         description_short: cntryMap.shortDescription,
         description_long: cntryMap.longDescription,
-        created_by: "WorldGuessr",
+        created_by: "Atlas",
         in_review: false,
         rejected: false
       }

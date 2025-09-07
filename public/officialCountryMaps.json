@@ -2,7 +2,7 @@
   {
     "name": "Argentina",
     "slug": "argentina",
-    "longDescription": "Explore Argentina in WorldGuessr! From the bustling streets of Buenos Aires to the breathtaking landscapes of Patagonia, discover the vast beauty and culture of this South American gem.",
+    "longDescription": "Explore Argentina in Atlas! From the bustling streets of Buenos Aires to the breathtaking landscapes of Patagonia, discover the vast beauty and culture of this South American gem.",
     "shortDescription": "Explore Argentina's 23 provinces and diverse landscapes!",
     "maxDist": 3720.101,
     "countryCode": "AR",
@@ -11,7 +11,7 @@
   {
     "name": "Australia",
     "slug": "australia",
-    "longDescription": "Explore Australia in WorldGuessr! Travel through the Outback, visit the iconic Sydney Opera House, and experience the unique wildlife of this vast island continent.",
+    "longDescription": "Explore Australia in Atlas! Travel through the Outback, visit the iconic Sydney Opera House, and experience the unique wildlife of this vast island continent.",
     "shortDescription": "Explore Australia's 8 states and territories!",
     "maxDist": 4600.556,
     "countryCode": "AU",
@@ -20,7 +20,7 @@
   {
     "name": "Austria",
     "slug": "austria",
-    "longDescription": "Explore Austria in WorldGuessr! From the Alps to the historic cities like Vienna, discover the rich cultural heritage and stunning landscapes of Austria.",
+    "longDescription": "Explore Austria in Atlas! From the Alps to the historic cities like Vienna, discover the rich cultural heritage and stunning landscapes of Austria.",
     "shortDescription": "Explore Austria's 9 federal states!",
     "maxDist": 577.829,
     "countryCode": "AT",
@@ -29,7 +29,7 @@
   {
     "name": "Belgium",
     "slug": "belgium",
-    "longDescription": "Explore Belgium in WorldGuessr! Discover the medieval towns, vibrant cities, and rich cultural heritage in the heart of Europe.",
+    "longDescription": "Explore Belgium in Atlas! Discover the medieval towns, vibrant cities, and rich cultural heritage in the heart of Europe.",
     "shortDescription": "Explore Belgium's 3 regions and over 800 types of beer!",
     "maxDist": 344.702,
     "countryCode": "BE",
@@ -38,7 +38,7 @@
   {
     "name": "Brazil",
     "slug": "brazil",
-    "longDescription": "Explore Brazil in WorldGuessr! From the Amazon rainforest to the vibrant city of Rio de Janeiro, immerse yourself in the diverse culture and natural beauty of Brazil.",
+    "longDescription": "Explore Brazil in Atlas! From the Amazon rainforest to the vibrant city of Rio de Janeiro, immerse yourself in the diverse culture and natural beauty of Brazil.",
     "shortDescription": "Explore Brazil's 26 states and the world's largest rainforest!",
     "maxDist": 4670.419,
     "countryCode": "BR",
@@ -47,7 +47,7 @@
   {
     "name": "Bulgaria",
     "slug": "bulgaria",
-    "longDescription": "Explore Bulgaria in WorldGuessr! Discover the rich history, beautiful mountains, and cultural diversity of this Eastern European country.",
+    "longDescription": "Explore Bulgaria in Atlas! Discover the rich history, beautiful mountains, and cultural diversity of this Eastern European country.",
     "shortDescription": "Explore Bulgaria's 28 provinces and rich history!",
     "maxDist": 582.029,
     "countryCode": "BG",
@@ -56,7 +56,7 @@
   {
     "name": "Canada",
     "slug": "canada",
-    "longDescription": "Explore Canada in WorldGuessr! From the Rocky Mountains to the French-speaking province of Quebec, explore the vast and diverse landscapes of Canada.",
+    "longDescription": "Explore Canada in Atlas! From the Rocky Mountains to the French-speaking province of Quebec, explore the vast and diverse landscapes of Canada.",
     "shortDescription": "Explore Canada's 10 provinces and 3 territories!",
     "maxDist": 5656.416,
     "countryCode": "CA",
@@ -65,7 +65,7 @@
   {
     "name": "Chile",
     "slug": "chile",
-    "longDescription": "Explore Chile in WorldGuessr! From the Atacama Desert to the fjords of Patagonia, discover the diverse and stunning landscapes of Chile.",
+    "longDescription": "Explore Chile in Atlas! From the Atacama Desert to the fjords of Patagonia, discover the diverse and stunning landscapes of Chile.",
     "shortDescription": "Explore Chile's 16 regions and the world's driest desert!",
     "maxDist": 4815.36,
     "countryCode": "CL",
@@ -74,7 +74,7 @@
   {
     "name": "Colombia",
     "slug": "colombia",
-    "longDescription": "Explore Colombia in WorldGuessr! Discover the vibrant cities, lush rainforests, and rich culture of this South American country.",
+    "longDescription": "Explore Colombia in Atlas! Discover the vibrant cities, lush rainforests, and rich culture of this South American country.",
     "shortDescription": "Explore Colombia's 32 departments and diverse ecosystems!",
     "maxDist": 2352.2,
     "countryCode": "CO",
@@ -83,7 +83,7 @@
   {
     "name": "Cyprus",
     "slug": "cyprus",
-    "longDescription": "Explore Cyprus in WorldGuessr! Discover the rich history, beautiful beaches, and vibrant culture of this Mediterranean island.",
+    "longDescription": "Explore Cyprus in Atlas! Discover the rich history, beautiful beaches, and vibrant culture of this Mediterranean island.",
     "shortDescription": "Explore Cyprus's 6 districts and rich cultural heritage!",
     "maxDist": 257.473,
     "countryCode": "CY",
@@ -92,7 +92,7 @@
   {
     "name": "Czech Republic",
     "slug": "czech-republic",
-    "longDescription": "Explore the Czech Republic in WorldGuessr! Discover the historic castles, charming towns, and vibrant culture of this Central European country.",
+    "longDescription": "Explore the Czech Republic in Atlas! Discover the historic castles, charming towns, and vibrant culture of this Central European country.",
     "shortDescription": "Explore the Czech Republic's 14 regions and over 2,000 castles!",
     "maxDist": 490.955,
     "countryCode": "CZ",
@@ -101,7 +101,7 @@
   {
     "name": "Denmark",
     "slug": "denmark",
-    "longDescription": "Explore Denmark in WorldGuessr! From the historic city of Copenhagen to the scenic coastal landscapes, discover the charm of this Scandinavian country.",
+    "longDescription": "Explore Denmark in Atlas! From the historic city of Copenhagen to the scenic coastal landscapes, discover the charm of this Scandinavian country.",
     "shortDescription": "Explore Denmark's 5 regions and over 400 islands!",
     "maxDist": 518.274,
     "countryCode": "DK",
@@ -110,7 +110,7 @@
   {
     "name": "Finland",
     "slug": "finland",
-    "longDescription": "Explore Finland in WorldGuessr! From the Northern Lights to the thousands of lakes, immerse yourself in the natural beauty and unique culture of Finland.",
+    "longDescription": "Explore Finland in Atlas! From the Northern Lights to the thousands of lakes, immerse yourself in the natural beauty and unique culture of Finland.",
     "shortDescription": "Explore Finland's 19 regions and over 188,000 lakes!",
     "maxDist": 1266.549,
     "countryCode": "FI",
@@ -119,7 +119,7 @@
   {
     "name": "France",
     "slug": "france",
-    "longDescription": "Explore France in WorldGuessr! Discover the Eiffel Tower, the French Riviera, and the diverse culture and landscapes of France.",
+    "longDescription": "Explore France in Atlas! Discover the Eiffel Tower, the French Riviera, and the diverse culture and landscapes of France.",
     "shortDescription": "Explore France's 18 regions and 1,200+ cheeses!",
     "maxDist": 1400,
     "countryCode": "FR",
@@ -128,7 +128,7 @@
   {
     "name": "Germany",
     "slug": "germany",
-    "longDescription": "Explore Germany in WorldGuessr! From the Black Forest to Berlin, discover the rich history, culture, and landscapes of Germany.",
+    "longDescription": "Explore Germany in Atlas! From the Black Forest to Berlin, discover the rich history, culture, and landscapes of Germany.",
     "shortDescription": "Explore Germany's 16 states and 300+ types of bread!",
     "maxDist": 906.917,
     "countryCode": "DE",
@@ -137,7 +137,7 @@
   {
     "name": "Greece",
     "slug": "greece",
-    "longDescription": "Explore Greece in WorldGuessr! Discover the ancient ruins, beautiful islands, and rich culture of this Mediterranean country.",
+    "longDescription": "Explore Greece in Atlas! Discover the ancient ruins, beautiful islands, and rich culture of this Mediterranean country.",
     "shortDescription": "Explore Greece's 13 regions and 6,000+ islands!",
     "maxDist": 1005.522,
     "countryCode": "GR",
@@ -146,7 +146,7 @@
   {
     "name": "Hungary",
     "slug": "hungary",
-    "longDescription": "Explore Hungary in WorldGuessr! Discover the historic cities, thermal baths, and rich cultural heritage of this Central European country.",
+    "longDescription": "Explore Hungary in Atlas! Discover the historic cities, thermal baths, and rich cultural heritage of this Central European country.",
     "shortDescription": "Explore Hungary's 19 counties and 1,500+ thermal springs!",
     "maxDist": 525.881,
     "countryCode": "HU",
@@ -155,7 +155,7 @@
   {
     "name": "India",
     "slug": "india",
-    "longDescription": "Explore India in WorldGuessr! From the Himalayas to the bustling streets of Delhi, experience the diverse culture, languages, and landscapes of India.",
+    "longDescription": "Explore India in Atlas! From the Himalayas to the bustling streets of Delhi, experience the diverse culture, languages, and landscapes of India.",
     "shortDescription": "Explore India's 28 states and over 1,600 languages spoken!",
     "maxDist": 3828.242,
     "countryCode": "IN",
@@ -164,7 +164,7 @@
   {
     "name": "Indonesia",
     "slug": "indonesia",
-    "longDescription": "Explore Indonesia in WorldGuessr! Discover the stunning islands, active volcanoes, and rich culture of this Southeast Asian archipelago.",
+    "longDescription": "Explore Indonesia in Atlas! Discover the stunning islands, active volcanoes, and rich culture of this Southeast Asian archipelago.",
     "shortDescription": "Explore Indonesia's 17,000+ islands and 300+ ethnic groups!",
     "maxDist": 5642.759,
     "countryCode": "ID",
@@ -173,7 +173,7 @@
   {
     "name": "Ireland",
     "slug": "ireland",
-    "longDescription": "Explore Ireland in WorldGuessr! Discover the lush green landscapes, historic castles, and vibrant culture of the Emerald Isle.",
+    "longDescription": "Explore Ireland in Atlas! Discover the lush green landscapes, historic castles, and vibrant culture of the Emerald Isle.",
     "shortDescription": "Explore Ireland's 4 provinces and over 30,000 castles!",
     "maxDist": 570.923,
     "countryCode": "IE",
@@ -182,7 +182,7 @@
   {
     "name": "Israel",
     "slug": "israel",
-    "longDescription": "Explore Israel in WorldGuessr! Discover the ancient cities, religious sites, and diverse culture of this Middle Eastern country.",
+    "longDescription": "Explore Israel in Atlas! Discover the ancient cities, religious sites, and diverse culture of this Middle Eastern country.",
     "shortDescription": "Explore Israel's 6 districts and the Dead Sea, the lowest point on Earth!",
     "maxDist": 439.764,
     "countryCode": "IL",
@@ -191,7 +191,7 @@
   {
     "name": "Italy",
     "slug": "italy",
-    "longDescription": "Explore Italy in WorldGuessr! From the ruins of Rome to the canals of Venice, experience the rich history, culture, and cuisine of Italy.",
+    "longDescription": "Explore Italy in Atlas! From the ruins of Rome to the canals of Venice, experience the rich history, culture, and cuisine of Italy.",
     "shortDescription": "Explore Italy's 20 regions and 55 UNESCO World Heritage sites!",
     "maxDist": 1317.252,
     "countryCode": "IT",
@@ -200,7 +200,7 @@
   {
     "name": "Japan",
     "slug": "japan",
-    "longDescription": "Explore Japan in WorldGuessr! Discover the blend of ancient traditions and modern technology in the Land of the Rising Sun.",
+    "longDescription": "Explore Japan in Atlas! Discover the blend of ancient traditions and modern technology in the Land of the Rising Sun.",
     "shortDescription": "Explore Japan's 47 prefectures and over 6,800 islands!",
     "maxDist": 3020.565,
     "countryCode": "JP",
@@ -209,7 +209,7 @@
   {
     "name": "Kenya",
     "slug": "kenya",
-    "longDescription": "Explore Kenya in WorldGuessr! From the savannas to the bustling city of Nairobi, discover the diverse wildlife and landscapes of Kenya.",
+    "longDescription": "Explore Kenya in Atlas! From the savannas to the bustling city of Nairobi, discover the diverse wildlife and landscapes of Kenya.",
     "shortDescription": "Explore Kenya's 47 counties and the Great Rift Valley!",
     "maxDist": 1208.97,
     "countryCode": "KE",
@@ -218,7 +218,7 @@
   {
     "name": "Malaysia",
     "slug": "malaysia",
-    "longDescription": "Explore Malaysia in WorldGuessr! Discover the vibrant cities, stunning beaches, and rich cultural diversity of this Southeast Asian country.",
+    "longDescription": "Explore Malaysia in Atlas! Discover the vibrant cities, stunning beaches, and rich cultural diversity of this Southeast Asian country.",
     "shortDescription": "Explore Malaysia's 13 states and 3 federal territories!",
     "maxDist": 2239.742,
     "countryCode": "MY",
@@ -227,7 +227,7 @@
   {
     "name": "Mexico",
     "slug": "mexico",
-    "longDescription": "Explore Mexico in WorldGuessr! Discover the rich history, vibrant culture, and diverse landscapes of this North American country.",
+    "longDescription": "Explore Mexico in Atlas! Discover the rich history, vibrant culture, and diverse landscapes of this North American country.",
     "shortDescription": "Explore Mexico's 32 states and over 60 indigenous languages!",
     "maxDist": 3493.148,
     "countryCode": "MX",
@@ -236,7 +236,7 @@
   {
     "name": "Netherlands",
     "slug": "netherlands",
-    "longDescription": "Explore the Netherlands in WorldGuessr! Discover the iconic windmills, tulip fields, and vibrant cities of this European country.",
+    "longDescription": "Explore the Netherlands in Atlas! Discover the iconic windmills, tulip fields, and vibrant cities of this European country.",
     "shortDescription": "Explore the Netherlands' 12 provinces and over 4,000 km of canals!",
     "maxDist": 300,
     "countryCode": "NL",
@@ -245,7 +245,7 @@
   {
     "name": "New Zealand",
     "slug": "new-zealand",
-    "longDescription": "Explore New Zealand in WorldGuessr! Discover the stunning landscapes, from mountains to beaches, in this beautiful island nation.",
+    "longDescription": "Explore New Zealand in Atlas! Discover the stunning landscapes, from mountains to beaches, in this beautiful island nation.",
     "shortDescription": "Explore New Zealand's 2 main islands and over 600 smaller islands!",
     "maxDist": 2473.615,
     "countryCode": "NZ",
@@ -254,7 +254,7 @@
   {
     "name": "Nigeria",
     "slug": "nigeria",
-    "longDescription": "Explore Nigeria in WorldGuessr! Discover the diverse culture, vibrant cities, and rich history of Africa's most populous country.",
+    "longDescription": "Explore Nigeria in Atlas! Discover the diverse culture, vibrant cities, and rich history of Africa's most populous country.",
     "shortDescription": "Explore Nigeria's 36 states and over 500 ethnic groups!",
     "maxDist": 1470.5,
     "countryCode": "NG",
@@ -263,7 +263,7 @@
   {
     "name": "Norway",
     "slug": "norway",
-    "longDescription": "Explore Norway in WorldGuessr! Discover the stunning fjords, Northern Lights, and rich cultural heritage of this Scandinavian country.",
+    "longDescription": "Explore Norway in Atlas! Discover the stunning fjords, Northern Lights, and rich cultural heritage of this Scandinavian country.",
     "shortDescription": "Explore Norway's 11 counties and over 1,000 fjords!",
     "maxDist": 1942.584,
     "countryCode": "NO",
@@ -272,7 +272,7 @@
   {
     "name": "Peru",
     "slug": "peru",
-    "longDescription": "Explore Peru in WorldGuessr! From the ancient ruins of Machu Picchu to the vibrant city of Lima, discover the rich history and culture of Peru.",
+    "longDescription": "Explore Peru in Atlas! From the ancient ruins of Machu Picchu to the vibrant city of Lima, discover the rich history and culture of Peru.",
     "shortDescription": "Explore Peru's 25 regions and the world's largest rainforest!",
     "maxDist": 2114.034,
     "countryCode": "PE",
@@ -281,7 +281,7 @@
   {
     "name": "Philippines",
     "slug": "philippines",
-    "longDescription": "Explore the Philippines in WorldGuessr! Discover the stunning beaches, vibrant cities, and rich culture of this Southeast Asian archipelago.",
+    "longDescription": "Explore the Philippines in Atlas! Discover the stunning beaches, vibrant cities, and rich culture of this Southeast Asian archipelago.",
     "shortDescription": "Explore the Philippines' 7,641 islands and over 175 languages!",
     "maxDist": 1976.332,
     "countryCode": "PH",
@@ -290,7 +290,7 @@
   {
     "name": "Poland",
     "slug": "poland",
-    "longDescription": "Explore Poland in WorldGuessr! Discover the historic cities, beautiful countryside, and rich cultural heritage of this Central European country.",
+    "longDescription": "Explore Poland in Atlas! Discover the historic cities, beautiful countryside, and rich cultural heritage of this Central European country.",
     "shortDescription": "Explore Poland's 16 voivodeships and over 100 castles!",
     "maxDist": 827.137,
     "countryCode": "PL",
@@ -299,7 +299,7 @@
   {
     "name": "Portugal",
     "slug": "portugal",
-    "longDescription": "Explore Portugal in WorldGuessr! Discover the historic cities, beautiful beaches, and rich cultural heritage of this Southern European country.",
+    "longDescription": "Explore Portugal in Atlas! Discover the historic cities, beautiful beaches, and rich cultural heritage of this Southern European country.",
     "shortDescription": "Explore Portugal's 18 districts and 800 km of coastline!",
     "maxDist": 1837.279,
     "countryCode": "PT",
@@ -308,7 +308,7 @@
   {
     "name": "Romania",
     "slug": "romania",
-    "longDescription": "Explore Romania in WorldGuessr! Discover the historic castles, beautiful mountains, and rich culture of this Eastern European country.",
+    "longDescription": "Explore Romania in Atlas! Discover the historic castles, beautiful mountains, and rich culture of this Eastern European country.",
     "shortDescription": "Explore Romania's 41 counties and the legend of Dracula!",
     "maxDist": 770.108,
     "countryCode": "RO",
@@ -317,7 +317,7 @@
   {
     "name": "Russia",
     "slug": "russia",
-    "longDescription": "Explore Russia in WorldGuessr! From the historic cities of Moscow and St. Petersburg to the vast wilderness of Siberia, discover the diverse landscapes and culture of Russia.",
+    "longDescription": "Explore Russia in Atlas! From the historic cities of Moscow and St. Petersburg to the vast wilderness of Siberia, discover the diverse landscapes and culture of Russia.",
     "shortDescription": "Explore Russia's 85 federal subjects and the largest country in the world!",
     "maxDist": 8224.333,
     "countryCode": "RU",
@@ -326,7 +326,7 @@
   {
     "name": "South Africa",
     "slug": "south-africa",
-    "longDescription": "Explore South Africa in WorldGuessr! Discover the diverse cultures, stunning landscapes, and vibrant cities of this southernmost African country.",
+    "longDescription": "Explore South Africa in Atlas! Discover the diverse cultures, stunning landscapes, and vibrant cities of this southernmost African country.",
     "shortDescription": "Explore South Africa's 9 provinces and 11 official languages!",
     "maxDist": 1905.569,
     "countryCode": "ZA",
@@ -335,7 +335,7 @@
   {
     "name": "South Korea",
     "slug": "south-korea",
-    "longDescription": "Explore South Korea in WorldGuessr! Discover the blend of ancient traditions and modern technology in this East Asian country.",
+    "longDescription": "Explore South Korea in Atlas! Discover the blend of ancient traditions and modern technology in this East Asian country.",
     "shortDescription": "Explore South Korea's 9 provinces and over 5,000 years of history!",
     "maxDist": 683,
     "countryCode": "KR",
@@ -344,7 +344,7 @@
   {
     "name": "Spain",
     "slug": "spain",
-    "longDescription": "Explore Spain in WorldGuessr! Discover the historic cities, beautiful beaches, and rich cultural heritage of this Southern European country.",
+    "longDescription": "Explore Spain in Atlas! Discover the historic cities, beautiful beaches, and rich cultural heritage of this Southern European country.",
     "shortDescription": "Explore Spain's 17 autonomous communities and over 47 UNESCO World Heritage sites!",
     "maxDist": 2607.001,
     "countryCode": "ES",
@@ -353,7 +353,7 @@
   {
     "name": "Sweden",
     "slug": "sweden",
-    "longDescription": "Explore Sweden in WorldGuessr! Discover the stunning landscapes, vibrant cities, and rich cultural heritage of this Scandinavian country.",
+    "longDescription": "Explore Sweden in Atlas! Discover the stunning landscapes, vibrant cities, and rich cultural heritage of this Scandinavian country.",
     "shortDescription": "Explore Sweden's 21 counties and over 100,000 lakes!",
     "maxDist": 1592.015,
     "countryCode": "SE",
@@ -362,7 +362,7 @@
   {
     "name": "Switzerland",
     "slug": "switzerland",
-    "longDescription": "Explore Switzerland in WorldGuessr! Discover the stunning Alps, charming cities, and rich cultural heritage of this Central European country.",
+    "longDescription": "Explore Switzerland in Atlas! Discover the stunning Alps, charming cities, and rich cultural heritage of this Central European country.",
     "shortDescription": "Explore Switzerland's 26 cantons and over 7,000 lakes!",
     "maxDist": 358.077,
     "countryCode": "CH",
@@ -371,7 +371,7 @@
   {
     "name": "Thailand",
     "slug": "thailand",
-    "longDescription": "Explore Thailand in WorldGuessr! Discover the stunning beaches, vibrant cities, and rich cultural heritage of this Southeast Asian country.",
+    "longDescription": "Explore Thailand in Atlas! Discover the stunning beaches, vibrant cities, and rich cultural heritage of this Southeast Asian country.",
     "shortDescription": "Explore Thailand's 77 provinces and the world's longest reign by a monarch!",
     "maxDist": 1657.708,
     "countryCode": "TH",
@@ -380,7 +380,7 @@
   {
     "name": "Turkey",
     "slug": "turkey",
-    "longDescription": "Explore Turkey in WorldGuessr! Discover the rich history, vibrant cities, and diverse landscapes of this transcontinental country.",
+    "longDescription": "Explore Turkey in Atlas! Discover the rich history, vibrant cities, and diverse landscapes of this transcontinental country.",
     "shortDescription": "Explore Turkey's 81 provinces and over 2,000 years of history!",
     "maxDist": 1696.647,
     "countryCode": "TR",
@@ -389,7 +389,7 @@
   {
     "name": "United Kingdom",
     "slug": "united-kingdom",
-    "longDescription": "Explore the United Kingdom in WorldGuessr! Discover the historic cities, beautiful countryside, and rich cultural heritage of England, Scotland, Wales, and Northern Ireland.",
+    "longDescription": "Explore the United Kingdom in Atlas! Discover the historic cities, beautiful countryside, and rich cultural heritage of England, Scotland, Wales, and Northern Ireland.",
     "shortDescription": "Explore the UK's 4 nations and over 32 UNESCO World Heritage sites!",
     "maxDist": 1400,
     "countryCode": "GB",
@@ -398,7 +398,7 @@
   {
     "name": "United States",
     "slug": "united-states",
-    "longDescription": "Explore the United States in WorldGuessr! From the bustling cities to the stunning national parks, discover the diverse landscapes and cultures of this vast country.",
+    "longDescription": "Explore the United States in Atlas! From the bustling cities to the stunning national parks, discover the diverse landscapes and cultures of this vast country.",
     "shortDescription": "Explore the USA's 50 states and over 400 national parks!",
     "maxDist": 6000,
     "countryCode": "US",
@@ -407,7 +407,7 @@
   {
     "name": "Bangladesh",
     "slug": "bangladesh",
-    "longDescription": "Explore Bangladesh in WorldGuessr! From the lush landscapes of the Sundarbans to the vibrant streets of Dhaka, discover the rich culture and natural beauty of this South Asian gem.",
+    "longDescription": "Explore Bangladesh in Atlas! From the lush landscapes of the Sundarbans to the vibrant streets of Dhaka, discover the rich culture and natural beauty of this South Asian gem.",
     "shortDescription": "Discover the beauty of Bangladesh's diverse landscapes!",
     "maxDist": 809.854,
     "countryCode": "BD",
@@ -416,7 +416,7 @@
   {
     "name": "Ghana",
     "slug": "ghana",
-    "longDescription": "Explore Ghana in WorldGuessr! From the historical sites of Cape Coast to the colorful markets of Accra, experience the warmth and hospitality of this West African nation.",
+    "longDescription": "Explore Ghana in Atlas! From the historical sites of Cape Coast to the colorful markets of Accra, experience the warmth and hospitality of this West African nation.",
     "shortDescription": "Discover the vibrant culture and history of Ghana!",
     "maxDist": 854.901,
     "countryCode": "GH",
@@ -425,7 +425,7 @@
   {
     "name": "Slovenia",
     "slug": "slovenia",
-    "longDescription": "Explore Slovenia in WorldGuessr! From the stunning Lake Bled to the charming streets of Ljubljana, experience the natural beauty and cultural heritage of this picturesque country.",
+    "longDescription": "Explore Slovenia in Atlas! From the stunning Lake Bled to the charming streets of Ljubljana, experience the natural beauty and cultural heritage of this picturesque country.",
     "shortDescription": "Discover Slovenia's enchanting landscapes and cities!",
     "maxDist": 262.014,
     "countryCode": "SI",
@@ -434,7 +434,7 @@
   {
     "name": "Slovakia",
     "slug": "slovakia",
-    "longDescription": "Explore Slovakia in WorldGuessr! From the majestic Tatra Mountains to the historic castles, discover the rich history and stunning landscapes of this Central European country.",
+    "longDescription": "Explore Slovakia in Atlas! From the majestic Tatra Mountains to the historic castles, discover the rich history and stunning landscapes of this Central European country.",
     "shortDescription": "Experience Slovakia's beautiful nature and history!",
     "maxDist": 427.884,
     "countryCode": "SK",
@@ -443,7 +443,7 @@
   {
     "name": "Lesotho",
     "slug": "lesotho",
-    "longDescription": "Explore Lesotho in WorldGuessr! Known as the 'Kingdom in the Sky', experience its breathtaking mountain scenery and vibrant culture.",
+    "longDescription": "Explore Lesotho in Atlas! Known as the 'Kingdom in the Sky', experience its breathtaking mountain scenery and vibrant culture.",
     "shortDescription": "Discover the unique beauty of Lesotho's highlands!",
     "maxDist": 242.916,
     "countryCode": "LS",
@@ -452,7 +452,7 @@
   {
     "name": "Bhutan",
     "slug": "bhutan",
-    "longDescription": "Explore Bhutan in WorldGuessr! From the stunning monasteries perched on cliffs to the vibrant festivals, discover the spiritual beauty and culture of the 'Land of the Thunder Dragon'.",
+    "longDescription": "Explore Bhutan in Atlas! From the stunning monasteries perched on cliffs to the vibrant festivals, discover the spiritual beauty and culture of the 'Land of the Thunder Dragon'.",
     "shortDescription": "Experience Bhutan's unique culture and landscapes!",
     "maxDist": 50.05,
     "countryCode": "BT",
@@ -461,7 +461,7 @@
   {
     "name": "Sri Lanka",
     "slug": "sri-lanka",
-    "longDescription": "Explore Sri Lanka in WorldGuessr! From the ancient cities to the lush tea plantations, experience the island's rich history and natural beauty.",
+    "longDescription": "Explore Sri Lanka in Atlas! From the ancient cities to the lush tea plantations, experience the island's rich history and natural beauty.",
     "shortDescription": "Discover the diverse landscapes of Sri Lanka!",
     "maxDist": 505.193,
     "countryCode": "LK",
@@ -470,7 +470,7 @@
   {
     "name": "Lithuania",
     "slug": "lithuania",
-    "longDescription": "Explore Lithuania in WorldGuessr! From the historic capital of Vilnius to the beautiful Curonian Spit, discover the rich heritage and nature of this Baltic nation.",
+    "longDescription": "Explore Lithuania in Atlas! From the historic capital of Vilnius to the beautiful Curonian Spit, discover the rich heritage and nature of this Baltic nation.",
     "shortDescription": "Experience the charm of Lithuania's cities and landscapes!",
     "maxDist": 395.23,
     "countryCode": "LT",
@@ -479,7 +479,7 @@
   {
     "name": "Latvia",
     "slug": "latvia",
-    "longDescription": "Explore Latvia in WorldGuessr! From the picturesque streets of Riga to the stunning coastline, experience the beauty and culture of this Baltic state.",
+    "longDescription": "Explore Latvia in Atlas! From the picturesque streets of Riga to the stunning coastline, experience the beauty and culture of this Baltic state.",
     "shortDescription": "Discover the enchanting landscapes of Latvia!",
     "maxDist": 532.265,
     "countryCode": "LV",
@@ -488,7 +488,7 @@
   {
     "name": "Panama",
     "slug": "panama",
-    "longDescription": "Explore Panama in WorldGuessr! From the iconic Panama Canal to the lush rainforests, discover the diverse ecosystems and vibrant culture of this Central American country.",
+    "longDescription": "Explore Panama in Atlas! From the iconic Panama Canal to the lush rainforests, discover the diverse ecosystems and vibrant culture of this Central American country.",
     "shortDescription": "Experience the wonders of Panama's natural beauty!",
     "maxDist": 655.405,
     "countryCode": "PA",
@@ -497,7 +497,7 @@
   {
     "name": "Montenegro",
     "slug": "montenegro",
-    "longDescription": "Explore Montenegro in WorldGuessr! From the stunning fjords of Kotor to the beautiful beaches, experience the breathtaking landscapes and rich history of this Balkan nation.",
+    "longDescription": "Explore Montenegro in Atlas! From the stunning fjords of Kotor to the beautiful beaches, experience the breathtaking landscapes and rich history of this Balkan nation.",
     "shortDescription": "Discover the scenic beauty of Montenegro!",
     "maxDist": 193.061,
     "countryCode": "ME",
@@ -506,7 +506,7 @@
   {
     "name": "Croatia",
     "slug": "croatia",
-    "longDescription": "Explore Croatia in WorldGuessr! From the historic cities of Dubrovnik to the beautiful Plitvice Lakes, discover the rich culture and stunning landscapes of this Mediterranean country.",
+    "longDescription": "Explore Croatia in Atlas! From the historic cities of Dubrovnik to the beautiful Plitvice Lakes, discover the rich culture and stunning landscapes of this Mediterranean country.",
     "shortDescription": "Experience the beauty and history of Croatia!",
     "maxDist": 537.169,
     "countryCode": "HR",
@@ -515,7 +515,7 @@
   {
     "name": "Singapore",
     "slug": "singapore",
-    "longDescription": "Explore Singapore in WorldGuessr! From the iconic skyline to the lush gardens, experience the vibrant culture and modern attractions of this city-state.",
+    "longDescription": "Explore Singapore in Atlas! From the iconic skyline to the lush gardens, experience the vibrant culture and modern attractions of this city-state.",
     "shortDescription": "Discover the dynamic city of Singapore!",
     "maxDist": 63.278,
     "countryCode": "SG",
@@ -524,7 +524,7 @@
   {
     "name": "Namibia",
     "slug": "namibia",
-    "longDescription": "Explore Namibia in WorldGuessr! From the stunning deserts to the wildlife-rich national parks, discover the natural beauty and cultural diversity of this southern African country.",
+    "longDescription": "Explore Namibia in Atlas! From the stunning deserts to the wildlife-rich national parks, discover the natural beauty and cultural diversity of this southern African country.",
     "shortDescription": "Experience the breathtaking landscapes of Namibia!",
     "maxDist": 1522.395,
     "countryCode": "NA",
@@ -533,7 +533,7 @@
   {
     "name": "Vietnam",
     "slug": "vietnam",
-    "longDescription": "Explore Vietnam in WorldGuessr! From the bustling streets of Hanoi to the serene landscapes of Ha Long Bay, discover the rich culture and history of this Southeast Asian country.",
+    "longDescription": "Explore Vietnam in Atlas! From the bustling streets of Hanoi to the serene landscapes of Ha Long Bay, discover the rich culture and history of this Southeast Asian country.",
     "shortDescription": "Experience the vibrant culture and stunning landscapes of Vietnam!",
     "maxDist": 1800.49,
     "countryCode": "VN",

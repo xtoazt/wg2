@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://worldguessr.com/</loc>
+    <loc>https://atlas.com/</loc>
     <lastmod>2024-07-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://worldguessr.com/leaderboard</loc>
+    <loc>https://atlas.com/leaderboard</loc>
     <lastmod>2024-07-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://worldguessr.com/ru</loc>
+    <loc>https://atlas.com/ru</loc>
     <lastmod>2024-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://worldguessr.com/de</loc>
+    <loc>https://atlas.com/de</loc>
     <lastmod>2024-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://worldguessr.com/fr</loc>
+    <loc>https://atlas.com/fr</loc>
     <lastmod>2024-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
     <url>
-    <loc>https://worldguessr.com/es</loc>
+    <loc>https://atlas.com/es</loc>
     <lastmod>2024-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://worldguessr.com/maps</loc>
+    <loc>https://atlas.com/maps</loc>
     <lastmod>2024-08-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>

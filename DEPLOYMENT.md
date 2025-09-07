@@ -8,8 +8,8 @@ Set these environment variables in your Vercel dashboard:
 MONGODB=mongodb+srv://mynameisrohanandthisismyemail:<db_password>@cluster0.p6iwx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 REDIS_URL=redis://redis-18605.c278.us-east-1-4.ec2.redns.redis-cloud.com:18605
 JWT_SECRET=f4141d87f162acc1dbf663c5240a2cf300d098b6f632bdceebef2e9b6366efbbeee5211a1d3f18056b8161a0a8314fb09af905c56586c480462ac78e0a7c14d9
-NEXT_PUBLIC_API_URL=https://api.worldguessr.com
-NEXT_PUBLIC_SERVER_URL=https://server.worldguessr.com
+NEXT_PUBLIC_API_URL=https://api.atlas.com
+NEXT_PUBLIC_SERVER_URL=https://server.atlas.com
 ```
 
 ## API Endpoints
@@ -146,7 +146,7 @@ fetch('/api/clues', {
 - **Authentication System Simplified**: Removed Google OAuth and CrazyGames, using pure MongoDB username/password authentication
 - **External Integrations Removed**: Removed Discord, YouTube, and other external platform integrations
 - **UI Redesigned**: Minimal monochromatic design with clean, modern interface
-- **Rebranded**: Now called "atlas." (formerly "Worldguessr2") with credit to Rohan
+- **Rebranded**: Now called "atlas." (formerly "WG2") with credit to Rohan
 
 ## Deployment Steps
 

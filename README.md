@@ -1,4 +1,4 @@
 atlas.
 atlas. - Updated and new
 
-Formerly known as "Worldguessr2"
+Formerly known as "WG2"

@@ -602,7 +602,7 @@ export default function Home({ }) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Play WorldGuessr</title>
+  <title>Play Atlas</title>
   <style>
     * {
       margin: 0;
@@ -659,8 +659,8 @@ export default function Home({ }) {
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to WorldGuessr!</h1>
-    <a href="https://worldguessr.com" target="_blank">
+    <h1>Welcome to Atlas!</h1>
+    <a href="https://atlas.com" target="_blank">
       <button class="play-button">Open in New Tab ↗</button>
     </a>
   </div>
@@ -839,7 +839,7 @@ export default function Home({ }) {
 
     // Log commit hash on app startup
     useEffect(() => {
-        console.log(`🌍 WorldGuessr build: ${process.env.NEXT_PUBLIC_COMMIT_HASH || 'unknown'}`);
+        console.log(`🌍 Atlas build: ${process.env.NEXT_PUBLIC_COMMIT_HASH || 'unknown'}`);
         console.log(`📅 Build time: ${process.env.NEXT_PUBLIC_BUILD_TIME || 'unknown'}`);
     }, [])
 
@@ -2228,7 +2228,7 @@ export default function Home({ }) {
                                             setNavSlideOut(true);
                                             setTimeout(() => {
                                                 setNavSlideOut(false);
-                                                handleMultiplayerAction("createPrivateGame");
+                                                handleMultiplayerAction("unrankedDuel");
                                             }, 300);
                                         }}
                                     >
