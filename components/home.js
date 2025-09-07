@@ -2330,6 +2330,7 @@ export default function Home({ }) {
                             </div>
                         )}
                     </div>
+                )}
 
                 {/* Footer moved outside of sliding navigation */}
                 {screen === "home" && (
