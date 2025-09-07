@@ -1,6 +1,6 @@
 import { inIframe } from "../utils/inIframe";
 import { toast } from "react-toastify";
-import retryManager from "../utils/retryFetch";
+import { verifyUser } from "../utils/mongodb";
 
 // secret: userDb.secret, username: userDb.username, email: userDb.email, staff: userDb.staff, canMakeClues: userDb.canMakeClues, supporter: userDb.supporter
 let session = false;
@@ -75,22 +75,9 @@ export function useSession() {
 
     window.fetchingSession = true;
 
-    console.log(`[Auth] Starting authentication with retry mechanism`);
-    console.log(`[Auth] API URL:`, window.cConfig?.apiUrl);
-    console.log(`[Auth] Full URL:`, window.cConfig?.apiUrl + "/api/auth");
+    console.log(`[Auth] Starting direct MongoDB authentication`);
     
-    retryManager.fetchWithRetry(
-      window.cConfig?.apiUrl + "/api/auth",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ action: 'verify', secret }),
-      },
-      'auth'
-    )
-      .then((res) => res.json())
+    verifyUser(secret)
       .then((data) => {
         window.fetchingSession = false;
         console.log(`[Auth] Authentication successful`);

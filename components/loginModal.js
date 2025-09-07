@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import retryManager from './utils/retryFetch';
-import clientConfig from '../clientConfig';
+import { authenticateUser, registerUser } from './utils/mongodb';
 
 export default function LoginModal({ isOpen, onClose, onLogin }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,53 +17,25 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
 
     setLoading(true);
     try {
-      // Use window.cConfig if available, otherwise fall back to clientConfig()
-      const apiUrl = window.cConfig?.apiUrl || clientConfig().apiUrl;
-      console.log('[Login] Using API URL:', apiUrl);
-      console.log('[Login] Full URL:', apiUrl + "/api/auth");
+      console.log('[Login] Attempting direct MongoDB authentication...');
       
-      const response = await retryManager.fetchWithRetry(
-        apiUrl + "/api/auth",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            action: isLogin ? 'login' : 'register',
-            username,
-            password
-          }),
-        },
-        'auth'
-      );
-
-      const data = await response.json();
-
-      if (data.error) {
-        toast.error(data.error);
+      let data;
+      if (isLogin) {
+        data = await authenticateUser(username, password);
       } else {
-        // Store session
-        window.localStorage.setItem("wg_secret", data.secret);
-        onLogin({ token: data });
-        toast.success(isLogin ? 'Login successful!' : 'Registration successful!');
-        onClose();
-        setUsername('');
-        setPassword('');
+        data = await registerUser(username, password);
       }
+
+      // Store session
+      window.localStorage.setItem("wg_secret", data.secret);
+      onLogin({ token: data });
+      toast.success(isLogin ? 'Login successful!' : 'Registration successful!');
+      onClose();
+      setUsername('');
+      setPassword('');
     } catch (error) {
       console.error('Auth error:', error);
-      
-      // Provide more specific error messages
-      if (error.name === 'AbortError' && error.message.includes('signal is aborted without reason')) {
-        toast.error('Authentication service is currently unavailable. Please try again later.');
-      } else if (error.name === 'AbortError') {
-        toast.error('Request timed out. Please check your connection and try again.');
-      } else if (error.message.includes('fetch')) {
-        toast.error('Network error. Please check your connection and try again.');
-      } else {
-        toast.error('Authentication failed. Please try again.');
-      }
+      toast.error(error.message || 'Authentication failed. Please try again.');
     } finally {
       setLoading(false);
     }
