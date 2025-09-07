@@ -131,7 +131,7 @@ ads.js"></script>*/
 {/*  */}
 
 
-    <meta property="og:image" content="/icon_144x144.png" />
+    <meta property="og:image" content="/atlas-logo.svg" />
     <meta property="og:url" content="https://atlas.com" />
     <meta property="og:type" content="website" />
 </Head>
