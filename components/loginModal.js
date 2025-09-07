@@ -21,10 +21,10 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
       // Use window.cConfig if available, otherwise fall back to clientConfig()
       const apiUrl = window.cConfig?.apiUrl || clientConfig().apiUrl;
       console.log('[Login] Using API URL:', apiUrl);
-      console.log('[Login] Full URL:', apiUrl + "/api/auth");
+      console.log('[Login] Full URL:', apiUrl + "/auth");
       
       const response = await retryManager.fetchWithRetry(
-        apiUrl + "/api/auth",
+        apiUrl + "/auth",
         {
           method: "POST",
           headers: {
