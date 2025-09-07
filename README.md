@@ -1,2 +1,2 @@
 WG2
-WorldGuessr2, updated and new
+WG2 - Updated and new

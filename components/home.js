@@ -616,7 +616,7 @@ export default function Home({ }) {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: url('https://www.worldguessr.com/street1.jpg') no-repeat center center/cover;
+      background: url('https://www.wg2.com/street1.jpg') no-repeat center center/cover;
       font-family: 'Arial', sans-serif;
     }
 

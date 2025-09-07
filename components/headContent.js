@@ -132,7 +132,7 @@ ads.js"></script>*/
 
 
     <meta property="og:image" content="/icon_144x144.png" />
-    <meta property="og:url" content="https://worldguessr.com" />
+    <meta property="og:url" content="https://wg2.com" />
     <meta property="og:type" content="website" />
 </Head>
   )

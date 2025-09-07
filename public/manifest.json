@@ -3,10 +3,10 @@
   "description": "The #1 free alternative to GeoGuessr, enjoy unlimited games and play to your hearts content! Engage in the fun of discovering new places and learn geography.",
   "dir": "ltr",
   "display": "fullscreen",
-  "name": "WorldGuessr",
+  "name": "WG2",
   "orientation": "portrait",
   "scope": "/",
-  "short_name": "WorldGuessr",
+  "short_name": "WG2",
   "start_url": "/",
   "theme_color": "#164785",
   "icons": [
@@ -20,7 +20,7 @@
       "type": "image/png"
     }
   ],
-  "id": "worldguessr",
+  "id": "wg2",
   "display_override": [
     "fullscreen",
     "window-controls-overlay"
