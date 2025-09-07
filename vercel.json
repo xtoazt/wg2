@@ -1,0 +1,51 @@
+{
+  "functions": {
+    "api/auth.js": {
+      "maxDuration": 30
+    },
+    "api/user.js": {
+      "maxDuration": 30
+    },
+    "api/game.js": {
+      "maxDuration": 30
+    },
+    "api/leaderboard.js": {
+      "maxDuration": 30
+    },
+    "api/maps.js": {
+      "maxDuration": 30
+    },
+    "api/clues.js": {
+      "maxDuration": 30
+    },
+    "api/countries.js": {
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "MONGODB": "mongodb+srv://mynameisrohanandthisismyemail:<db_password>@cluster0.p6iwx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    "REDIS_URL": "redis://redis-18605.c278.us-east-1-4.ec2.redns.redis-cloud.com:18605",
+    "JWT_SECRET": "f4141d87f162acc1dbf663c5240a2cf300d098b6f632bdceebef2e9b6366efbbeee5211a1d3f18056b8161a0a8314fb09af905c56586c480462ac78e0a7c14d9",
+    "NEXT_PUBLIC_API_URL": "https://api.worldguessr.com",
+    "NEXT_PUBLIC_SERVER_URL": "https://server.worldguessr.com"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
+}

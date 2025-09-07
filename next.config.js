@@ -1,7 +1,3 @@
-// const path = require('path');
-// const process = require('process');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
-
 import path from 'path';
 import process from 'process';
 import { execSync } from 'child_process';
@@ -37,7 +33,7 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    output: 'export',
+    // Remove output: 'export' for Vercel deployment
     async rewrites() {
         return [
             {
@@ -46,9 +42,11 @@ const nextConfig = {
             },
         ];
     },
-
+    // Vercel-specific configuration
+    experimental: {
+        serverComponentsExternalPackages: ['mongoose']
+    },
     // assetPrefix: './', we cant use this because it breaks dynamic paths (https://nextjs.org/docs/app/api-reference/config/next-config-js/assetPrefix)
 };
 
-// module.exports = nextConfig;
 export default nextConfig;

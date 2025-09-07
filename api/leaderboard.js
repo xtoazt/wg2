@@ -1,5 +1,7 @@
 import User from '../models/User.js';
 import UserStats from '../models/UserStats.js';
+import mongoose from 'mongoose';
+import { getLeague } from '../components/utils/leagues.js';
 
 // Improved caching with separate keys for different modes
 const CACHE_DURATION = 60000; // 1 minute cache
@@ -183,15 +185,11 @@ async function getUserDailyRank(username, isXp = true) {
   return { rank, delta: userDelta };
 }
 
-export default async function handler(req, res) {
-  const myUsername = req.query.username;
-  const pastDay = req.query.pastDay === 'true';
-  const isXp = req.query.mode === 'xp';
-
-  // Only allow GET requests
-  if (req.method !== 'GET') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
+// Get leaderboard data
+async function getLeaderboard(req, res) {
+  const myUsername = req.body.username;
+  const pastDay = req.body.pastDay === true;
+  const isXp = req.body.mode === 'xp';
 
   try {
     const cacheKey = getCacheKey(isXp ? 'xp' : 'elo', pastDay);
@@ -255,5 +253,89 @@ export default async function handler(req, res) {
       message: 'An error occurred',
       error: error.message
     });
+  }
+}
+
+// Get ELO rank for a user
+async function getEloRank(req, res) {
+  const { username, secret } = req.body;
+
+  // Connect to MongoDB
+  if (mongoose.connection.readyState !== 1) {
+    try {
+      await mongoose.connect(process.env.MONGODB);
+    } catch (error) {
+      return res.status(500).json({ message: 'Database connection failed', error: error.message });
+    }
+  }
+
+  try {
+    // Find user by the provided username or secret
+    let user;
+    if(username) {
+      user = await User.findOne({ username });
+    } else if(secret) {
+      user = await User.findOne({ secret });
+    }
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const rank = (await User.countDocuments({ elo: { $gt: user.elo },
+      banned: false
+    }).cache(2000)) + 1;
+
+    // Return the user's elo and rank
+    return res.status(200).json({ elo: user.elo, rank, league: getLeague(user.elo),
+      duels_wins: user.duels_wins, duels_losses: user.duels_losses,
+        duels_tied: user.duels_tied,
+      win_rate: user.duels_wins / (user.duels_wins + user.duels_losses + user.duels_tied)
+     });
+  } catch (error) {
+    return res.status(500).json({ message: 'An error occurred', error: error.message });
+  }
+}
+
+export async function setElo(accountId, newElo, gameData) {
+  // gamedata -> {draw:true|false, winner: true|false}
+  try {
+    const user = await User.findById(accountId);
+    if (!user) return false;
+
+    const oldElo = user.elo;
+    user.elo = newElo;
+    
+    if (gameData.draw) {
+      user.duels_tied += 1;
+    } else if (gameData.winner) {
+      user.duels_wins += 1;
+    } else {
+      user.duels_losses += 1;
+    }
+    
+    await user.save();
+    return true;
+  } catch (error) {
+    console.error('Error setting ELO:', error);
+    return false;
+  }
+}
+
+export default async function handler(req, res) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
+
+  const { action } = req.body;
+
+  switch (action) {
+    case 'leaderboard':
+      return getLeaderboard(req, res);
+    case 'eloRank':
+      return getEloRank(req, res);
+    default:
+      return res.status(400).json({ message: 'Invalid action' });
   }
 }
