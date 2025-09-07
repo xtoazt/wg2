@@ -8,6 +8,8 @@ import FriendsModal from "@/components/friendModal";
 import { FaUsers, FaArrowLeft } from "react-icons/fa6";
 import Link from "next/link";
 import initWebsocket from "@/components/utils/initWebsocket";
+import retryManager from "@/components/utils/retryFetch";
+import clientConfig from "@/clientConfig";
 
 export default function FriendsPage() {
     const { session, loading } = useSession();
@@ -27,6 +29,44 @@ export default function FriendsPage() {
             router.push('/');
         }
     }, [session, loading, router]);
+
+    // Load friends data from MongoDB
+    useEffect(() => {
+        if (session?.token?.accountId) {
+            loadFriendsData();
+        }
+    }, [session]);
+
+    const loadFriendsData = async () => {
+        try {
+            const apiUrl = clientConfig().apiUrl;
+            const response = await retryManager.fetchWithRetry(
+                apiUrl + "/api/friends",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        action: 'getFriends',
+                        accountId: session.token.accountId
+                    }),
+                },
+                'friends'
+            );
+
+            const data = await response.json();
+            if (data.error) {
+                console.error('Failed to load friends data:', data.error);
+            } else {
+                setFriends(data.friends);
+                setSentRequests(data.sentRequests);
+                setReceivedRequests(data.receivedRequests);
+            }
+        } catch (error) {
+            console.error('Failed to load friends data:', error);
+        }
+    };
 
     // Initialize WebSocket
     useEffect(() => {

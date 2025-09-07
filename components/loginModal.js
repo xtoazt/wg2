@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { authenticateUser, registerUser } from './utils/mongodb';
+import retryManager from './utils/retryFetch';
+import clientConfig from '../clientConfig';
 
 export default function LoginModal({ isOpen, onClose, onLogin }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -17,25 +18,41 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
 
     setLoading(true);
     try {
-      console.log('[Login] Attempting direct MongoDB authentication...');
+      const apiUrl = clientConfig().apiUrl;
+      console.log('[Login] Using API URL:', apiUrl);
       
-      let data;
-      if (isLogin) {
-        data = await authenticateUser(username, password);
-      } else {
-        data = await registerUser(username, password);
-      }
+      const response = await retryManager.fetchWithRetry(
+        apiUrl + "/api/auth-direct",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            action: isLogin ? 'login' : 'register',
+            username,
+            password
+          }),
+        },
+        'auth'
+      );
 
-      // Store session
-      window.localStorage.setItem("wg_secret", data.secret);
-      onLogin({ token: data });
-      toast.success(isLogin ? 'Login successful!' : 'Registration successful!');
-      onClose();
-      setUsername('');
-      setPassword('');
+      const data = await response.json();
+
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        // Store session
+        window.localStorage.setItem("wg_secret", data.secret);
+        onLogin({ token: data });
+        toast.success(isLogin ? 'Login successful!' : 'Registration successful!');
+        onClose();
+        setUsername('');
+        setPassword('');
+      }
     } catch (error) {
       console.error('Auth error:', error);
-      toast.error(error.message || 'Authentication failed. Please try again.');
+      toast.error('Authentication failed. Please try again.');
     } finally {
       setLoading(false);
     }
