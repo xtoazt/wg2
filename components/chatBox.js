@@ -6,6 +6,7 @@ import { FaXmark } from 'react-icons/fa6';
 import { useTranslation } from '@/components/useTranslations';
 import { Filter } from 'bad-words';
 import { toast } from 'react-toastify';
+import PresetMessages from './PresetMessages';
 const filter = new Filter();
 
 const config = {
@@ -77,12 +78,17 @@ const ActionProvider = ({ createChatBotMessage, setState, children, ws, myId, in
     sendMsg(message);
   };
 
+  const handlePresetMessage = (message) => {
+    sendMsg(message);
+  };
+
   return (
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           actions: {
             handleMsg,
+            handlePresetMessage,
           },
         });
       })}
@@ -141,11 +147,36 @@ export default function ChatBox({ ws, open, onToggle, enabled, myId, inGame, min
     <div className={`chatboxParent ${enabled ? 'enabled' : ''} ${notGuestChatDisabled ? 'guest' : ''} ${roundOverScreenShown ? 'roundOverScreen' : ''}`}>
       {!shouldHideChatButton && (
         <button
-        className={`chatboxBtn ${open ? 'open' : ''} ${miniMapShown ? 'minimap' : ''}`} style={{ fontSize: '16px', fontWeight: 'bold', color: 'white', background: 'green', border: 'none', borderRadius: '5px', padding: '10px 20px', cursor: 'pointer' }} onClick={onToggle}>
+        className={`chatboxBtn ${open ? 'open' : ''} ${miniMapShown ? 'minimap' : ''}`} 
+        style={{ 
+          fontSize: '14px', 
+          fontWeight: 'var(--font-weight-semibold)', 
+          color: 'white', 
+          background: 'var(--gradient-primary)', 
+          border: '1px solid var(--accent)', 
+          borderRadius: 'var(--radius-md)', 
+          padding: 'var(--space-sm) var(--space-md)', 
+          cursor: 'pointer',
+          transition: 'all var(--transition-fast)',
+          boxShadow: 'var(--shadow-sm)'
+        }} 
+        onClick={onToggle}>
           {open ? <FaXmark onClick={onToggle} /> : `${text("chat")}${unreadCount > 0 ? ` (${unreadCount})` : ''}`}
         </button>
       )}
       <div className={`chatbox ${open ? 'open' : ''}`}>
+        {inGame && !notGuestChatDisabled && (
+          <div style={{ padding: 'var(--space-md)', borderBottom: '1px solid var(--border)' }}>
+            <PresetMessages 
+              onSendMessage={(message) => {
+                if (ws) {
+                  ws.send(JSON.stringify({ type: 'chat', message: message }));
+                }
+              }}
+              disabled={notGuestChatDisabled}
+            />
+          </div>
+        )}
         <Chatbot
           config={config}
           placeholderText={notGuestChatDisabled ? "Please login to chat" : undefined}
