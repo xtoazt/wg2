@@ -2211,6 +2211,7 @@ export default function Home({ }) {
                         {onboardingCompleted && (
                             <div className="homepage-container">
                                 <h1 className="homepage-title">atlas.</h1>
+                                <p style={{ fontSize: '12px', opacity: 0.7, marginTop: '8px' }}>formerly Worldguessr2</p>
                                 
                                 <div className="main-buttons">
                                     <button 
@@ -2348,50 +2349,6 @@ export default function Home({ }) {
                                 <button className="g2_hover_effect home__squarebtn gameBtn g2_container_full " aria-label="Settings" onClick={() => setSettingsModal(true)}><FaGear className="home__squarebtnicon" /></button>
                             </div>
                         </div>
-                )}
-
-                        <div className="g2_content g2_content_margin g2_slide_in" style={{ display: "flex", gap: "20px", flexDirection: "column" }}>
-                            {/*
-                            {session?.token?.secret && (
-                                <button className="g2_nav_text " onClick={() => { handleMultiplayerAction("publicDuel"); setShowPartyCards(false); }}
-                                    disabled={!multiplayerState.connected || maintenance}>{text("rankedDuel")}</button>
-                            )}
-                            <button className="g2_nav_text " onClick={() => { handleMultiplayerAction("unrankedDuel"); setShowPartyCards(false); }}
-                                disabled={!multiplayerState.connected || maintenance}>
-
-                                {
-                                    session?.token?.secret ? text("unrankedDuel") :
-                                        text("findDuel")
-
-                                }
-                            </button>*/}
-                            {/* {showPartyCards &&
-                                <>
-                                    <h1>{text("duels")}</h1>
-                                    <div style={{ display: "flex", gap: "20px" }} >
-
-                                        {session?.token?.secret && (
-                                            <div className="g2_container_light g2_container_style g2_card">
-                                                <button className="g2_text" disabled={!multiplayerState.connected || maintenance} onClick={() => { handleMultiplayerAction("publicDuel"); }}>{text("rankedDuel")}</button>
-                                                <hr className="g2_nav_hr"></hr>
-                                            </div>
-                                        )}
-
-
-                                        <div className="g2_container_light g2_container_style g2_card" >
-                                        <button className="g2_text" disabled={!multiplayerState.connected || maintenance} onClick={() => { handleMultiplayerAction("unrankedDuel") }}>
-                                                {
-                                                    session?.token?.secret ? text("unrankedDuel") :
-                                                        text("findDuel")
-                                                }
-                                            </button>
-                                            <hr className="g2_nav_hr"></hr>
-                                        </div>
-                                    </div>
-                                </>
-                            } */}
-                        </div>
-                    </div>
                 )}
                 <InfoModal shown={false} />
                 <MapsModal shown={mapModal || gameOptionsModalShown} session={session} onClose={() => {
