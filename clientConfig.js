@@ -4,8 +4,8 @@ export default function config() {
 const prefixHttp = (isHttps ? "https" : "http")+"://";
 const prefixWs = (isHttps ? "wss" : "ws")+"://";
 
-  // Use the correct API URL
-  const apiUrl = 'https://api.worldguessr.com';
+  // Use Vercel app URL for API calls (Next.js API routes)
+  const apiUrl = typeof window !== 'undefined' ? window.location.origin : '';
 
   return {
   "apiUrl": apiUrl,
