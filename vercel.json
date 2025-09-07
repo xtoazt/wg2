@@ -9,6 +9,15 @@
     "api/friends.js": {
       "maxDuration": 30
     },
+    "api/auth-new.js": {
+      "maxDuration": 30
+    },
+    "api/test.js": {
+      "maxDuration": 10
+    },
+    "api/auth-simple.js": {
+      "maxDuration": 10
+    },
     "api/user.js": {
       "maxDuration": 30
     },

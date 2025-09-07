@@ -2200,129 +2200,139 @@ export default function Home({ }) {
                     <div className={`home__content g2_modal ${screen !== "home" ? "hidden" : "cshown"} `}>
                         {onboardingCompleted && (
                             <div className="homepage-container">
-                                <h1 className="homepage-title">atlas.</h1>
-                                
-                                <div className="main-buttons">
-                                    <button 
-                                        className="main-button"
-                                        onClick={() => {
-                                            if (loading) return;
-                                            setNavSlideOut(true);
-                                            setMiniMapShown(false);
-                                            setTimeout(() => {
-                                                crazyMidgame(() => setScreen("singleplayer"));
-                                                setNavSlideOut(false);
-                                            }, 300);
-                                        }}
-                                    >
-                                        SinglePlayer
-                                    </button>
+                                <div className="homepage-content">
+                                    <h1 className="homepage-title">atlas.</h1>
                                     
-                                    <button 
-                                        className="main-button"
-                                        onClick={() => {
-                                            if(!ws || !multiplayerState?.connected) {
-                                                setConnectionErrorModalShown(true);
-                                                return;
-                                            }
-                                            setNavSlideOut(true);
-                                            setTimeout(() => {
-                                                setNavSlideOut(false);
-                                                handleMultiplayerAction("unrankedDuel");
-                                            }, 300);
-                                        }}
-                                    >
-                                        Multiplayer
-                                    </button>
+                                    <div className="main-buttons">
+                                        <button 
+                                            className="main-button"
+                                            onClick={() => {
+                                                if (loading) return;
+                                                setNavSlideOut(true);
+                                                setMiniMapShown(false);
+                                                setTimeout(() => {
+                                                    crazyMidgame(() => setScreen("singleplayer"));
+                                                    setNavSlideOut(false);
+                                                }, 300);
+                                            }}
+                                        >
+                                            SinglePlayer
+                                        </button>
+                                        
+                                        <button 
+                                            className="main-button"
+                                            onClick={() => {
+                                                if(!ws || !multiplayerState?.connected) {
+                                                    setConnectionErrorModalShown(true);
+                                                    return;
+                                                }
+                                                setNavSlideOut(true);
+                                                setTimeout(() => {
+                                                    setNavSlideOut(false);
+                                                    handleMultiplayerAction("unrankedDuel");
+                                                }, 300);
+                                            }}
+                                        >
+                                            Multiplayer
+                                        </button>
+                                        
+                                        <button 
+                                            className="main-button"
+                                            onClick={() => {
+                                                if(!ws || !multiplayerState?.connected) {
+                                                    setConnectionErrorModalShown(true);
+                                                    return;
+                                                }
+                                                setNavSlideOut(true);
+                                                setTimeout(() => {
+                                                    setNavSlideOut(false);
+                                                    handleMultiplayerAction("joinPrivateGame");
+                                                }, 300);
+                                            }}
+                                        >
+                                            Join Game
+                                        </button>
+                                        
+                                        <button 
+                                            className="main-button"
+                                            onClick={() => {
+                                                if(!ws || !multiplayerState?.connected) {
+                                                    setConnectionErrorModalShown(true);
+                                                    return;
+                                                }
+                                                setNavSlideOut(true);
+                                                setTimeout(() => {
+                                                    setNavSlideOut(false);
+                                                    handleMultiplayerAction("createPrivateGame");
+                                                }, 300);
+                                            }}
+                                        >
+                                            Create Game
+                                        </button>
+                                    </div>
                                     
-                                    <button 
-                                        className="main-button"
-                                        onClick={() => {
-                                            if(!ws || !multiplayerState?.connected) {
-                                                setConnectionErrorModalShown(true);
-                                                return;
-                                            }
-                                            setNavSlideOut(true);
-                                            setTimeout(() => {
-                                                setNavSlideOut(false);
-                                                handleMultiplayerAction("joinPrivateGame");
-                                            }, 300);
-                                        }}
-                                    >
-                                        Join Game
-                                    </button>
-                                    
-                                    <button 
-                                        className="main-button"
-                                        onClick={() => {
-                                            if(!ws || !multiplayerState?.connected) {
-                                                setConnectionErrorModalShown(true);
-                                                return;
-                                            }
-                                            setNavSlideOut(true);
-                                            setTimeout(() => {
-                                                setNavSlideOut(false);
-                                                handleMultiplayerAction("createPrivateGame");
-                                            }, 300);
-                                        }}
-                                    >
-                                        Create Game
-                                    </button>
-                                </div>
-                                
-                                <div className="secondary-buttons">
-                                    {session?.token?.secret && (
-                                        <>
+                                    <div className="secondary-buttons">
+                                        {session?.token?.secret && (
+                                            <>
+                                                <button 
+                                                    className="secondary-button"
+                                                    onClick={() => { handleMultiplayerAction("publicDuel") }}
+                                                >
+                                                    {text("rankedDuel")}
+                                                </button>
+                                                
+                                                <Link href="/friends" className="secondary-button friends-button">
+                                                    <FaUsers />
+                                                    Friends
+                                                </Link>
+                                            </>
+                                        )}
+                                        
+                                        <button 
+                                            className="secondary-button"
+                                            onClick={() => { handleMultiplayerAction("unrankedDuel") }}
+                                        >
+                                            {session?.token?.secret ? text("unrankedDuel") : text("findDuel")}
+                                        </button>
+                                        
+                                        {!process.env.NEXT_PUBLIC_COOLMATH && (
                                             <button 
                                                 className="secondary-button"
-                                                onClick={() => { handleMultiplayerAction("publicDuel") }}
+                                                onClick={() => {
+                                                    setNavSlideOut(true);
+                                                    setTimeout(() => {
+                                                        setNavSlideOut(false);
+                                                        setMapModal(true);
+                                                    }, 300);
+                                                }}
                                             >
-                                                {text("rankedDuel")}
+                                                {text("communityMaps")}
                                             </button>
-                                            
-                                            <Link href="/friends" className="secondary-button friends-button">
-                                                <FaUsers />
-                                                Friends
-                                            </Link>
-                                        </>
-                                    )}
-                                    
-                                    <button 
-                                        className="secondary-button"
-                                        onClick={() => { handleMultiplayerAction("unrankedDuel") }}
-                                    >
-                                        {session?.token?.secret ? text("unrankedDuel") : text("findDuel")}
-                                    </button>
-                                    
-                                    {!process.env.NEXT_PUBLIC_COOLMATH && (
-                                        <button 
-                                            className="secondary-button"
-                                            onClick={() => {
-                                                setNavSlideOut(true);
-                                                setTimeout(() => {
-                                                    setNavSlideOut(false);
-                                                    setMapModal(true);
-                                                }, 300);
-                                            }}
-                                        >
-                                            {text("communityMaps")}
-                                        </button>
-                                    )}
-                                    
-                                    {inCrazyGames && (
-                                        <button 
-                                            className="secondary-button"
-                                            onClick={() => {
-                                                setNavSlideOut(true);
-                                                setTimeout(() => {
-                                                    setNavSlideOut(false);
-                                                    setMapGuessrModal(true);
-                                                }, 300);
-                                            }}
-                                        >
-                                            MapGuessr
-                                        </button>
-                                    )}
+                                        )}
+                                        
+                                        {inCrazyGames && (
+                                            <button 
+                                                className="secondary-button"
+                                                onClick={() => {
+                                                    setNavSlideOut(true);
+                                                    setTimeout(() => {
+                                                        setNavSlideOut(false);
+                                                        setMapGuessrModal(true);
+                                                    }, 300);
+                                                }}
+                                            >
+                                                MapGuessr
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                                
+                                <div className="homepage-gif">
+                                    <img 
+                                        src="/atlas-animation.gif" 
+                                        alt="Atlas Animation" 
+                                        className="atlas-animation-gif"
+                                    />
                                 </div>
                             </div>
                         )}
