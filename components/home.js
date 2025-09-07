@@ -2392,7 +2392,7 @@ export default function Home({ }) {
                             } */}
                         </div>
                     </div>
-                }
+                )}
                 <InfoModal shown={false} />
                 <MapsModal shown={mapModal || gameOptionsModalShown} session={session} onClose={() => {
                     if(mapModalClosing) return;
