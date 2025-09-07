@@ -1,9 +1,19 @@
 import { createUUID } from "../components/createUUID.js";
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
+import mongoose from "mongoose";
 
 // Pure MongoDB Username/Password Authentication
 async function handleAuth(req, res) {
+  // Connect to MongoDB
+  if (mongoose.connection.readyState !== 1) {
+    try {
+      await mongoose.connect(process.env.MONGODB);
+    } catch (error) {
+      return res.status(500).json({ error: 'Database connection failed' });
+    }
+  }
+
   const { username, password, action } = req.body;
   
   if (action === 'login') {

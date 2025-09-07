@@ -106,23 +106,17 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
 
     return (
         <div id="friendsModal" style={{
-
             zIndex: 100,
-            //background: '#333',
-            color: 'white',
+            background: 'var(--background)',
+            color: 'var(--text)',
             padding: '20px',
             borderRadius: '10px',
-            fontFamily: "'Arial', sans-serif",
+            fontFamily: '"Kode Mono", monospace',
             textAlign: 'center',
             width: '100%',
             height: '100%',
-
-
-        }} className={
-
-            'friendsModal'
-
-        } open={shown} center onClose={onClose}>
+            border: '2px solid var(--border)',
+        }} className="friendsModal" open={shown} center onClose={onClose}>
 
             {ws && ws.readyState !== 1 && (
                 <div>{text("disconnected")}</div>
@@ -137,20 +131,56 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
                     <div style={{ width: '100%' }}>
 
                         {/* Add Friend Section */}
-                        <div style={{ marginBottom: '30px', padding: '20px', background: 'rgba(255,255,255,0.1)', borderRadius: '10px' }}>
-                            <h3>{text("addFriend")}</h3>
-                            <p style={{ fontSize: '0.9rem', opacity: 0.8, marginBottom: '15px' }}>
+                        <div style={{ 
+                            marginBottom: '30px', 
+                            padding: '20px', 
+                            background: 'var(--surface)', 
+                            borderRadius: '10px',
+                            border: '1px solid var(--border)'
+                        }}>
+                            <h3 style={{ 
+                                color: 'var(--text)', 
+                                marginBottom: '15px',
+                                fontFamily: '"Kode Mono", monospace',
+                                fontSize: '1.2rem'
+                            }}>{text("addFriend")}</h3>
+                            <p style={{ 
+                                fontSize: '0.9rem', 
+                                color: 'var(--textSecondary)', 
+                                marginBottom: '15px' 
+                            }}>
                                 {text("addFriendDescription")}
                             </p>
-                            <div className="input-group">
+                            <div className="input-group" style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                                 <input
                                     type="text"
                                     value={newFriend}
                                     onChange={(e) => setNewFriend(e.target.value)}
                                     placeholder={text("addFriendPlaceholder")}
-                                    className="g2_input"
+                                    style={{
+                                        flex: 1,
+                                        padding: '10px',
+                                        background: 'var(--surfaceLight)',
+                                        border: '1px solid var(--border)',
+                                        borderRadius: '5px',
+                                        color: 'var(--text)',
+                                        fontFamily: '"Kode Mono", monospace'
+                                    }}
                                 />
-                                <button onClick={handleSendRequest} className="g2_green_button g2_button_style" disabled={friendReqProgress}>
+                                <button 
+                                    onClick={handleSendRequest} 
+                                    disabled={friendReqProgress}
+                                    style={{
+                                        padding: '10px 20px',
+                                        background: 'var(--gradButton)',
+                                        border: '1px solid var(--border)',
+                                        borderRadius: '5px',
+                                        color: 'var(--text)',
+                                        fontFamily: '"Kode Mono", monospace',
+                                        cursor: friendReqProgress ? 'not-allowed' : 'pointer',
+                                        opacity: friendReqProgress ? 0.6 : 1
+                                    }}
+                                >
                                     {friendReqProgress ? text("loading") : text("sendRequest")}
                                 </button>
                             </div>
@@ -166,11 +196,32 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
                         </div>
 
                         {/* Friend Request Settings */}
-                        <div style={{ marginBottom: '30px', padding: '15px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px' }}>
+                        <div style={{ 
+                            marginBottom: '30px', 
+                            padding: '15px', 
+                            background: 'var(--surface)', 
+                            borderRadius: '10px',
+                            border: '1px solid var(--border)'
+                        }}>
                             <div style={{ marginBottom: '15px' }}>
-                                <span>
-                                    {text("allowFriendRequests")}&nbsp;
-                                    <input type="checkbox" checked={allowFriendReq} onChange={(e) => ws?.send(JSON.stringify({ type: 'setAllowFriendReq', allow: e.target.checked }))} />
+                                <span style={{ 
+                                    color: 'var(--text)',
+                                    fontFamily: '"Kode Mono", monospace',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '10px'
+                                }}>
+                                    {text("allowFriendRequests")}
+                                    <input 
+                                        type="checkbox" 
+                                        checked={allowFriendReq} 
+                                        onChange={(e) => ws?.send(JSON.stringify({ type: 'setAllowFriendReq', allow: e.target.checked }))}
+                                        style={{
+                                            width: '18px',
+                                            height: '18px',
+                                            accentColor: 'var(--text)'
+                                        }}
+                                    />
                                 </span>
                             </div>
                         </div>
@@ -178,19 +229,64 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
                         {/* Received Requests Section */}
                         {receivedRequests.length > 0 && (
                             <div style={{ marginBottom: '30px' }}>
-                                <h3>{text("viewReceivedRequests", { cnt: receivedRequests.length })}</h3>
-                                <div className="friends-list">
+                                <h3 style={{ 
+                                    color: 'var(--text)', 
+                                    marginBottom: '15px',
+                                    fontFamily: '"Kode Mono", monospace',
+                                    fontSize: '1.1rem'
+                                }}>{text("viewReceivedRequests", { cnt: receivedRequests.length })}</h3>
+                                <div className="friends-list" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                     {receivedRequests.map(friend => (
-                                        <div key={friend.id} className="friend-card">
-                                            <div className="friend-details">
-                                                <span className="friend-name">
+                                        <div key={friend.id} style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            padding: '15px',
+                                            background: 'var(--surface)',
+                                            border: '1px solid var(--border)',
+                                            borderRadius: '8px'
+                                        }}>
+                                            <div>
+                                                <span style={{ 
+                                                    color: 'var(--text)',
+                                                    fontFamily: '"Kode Mono", monospace',
+                                                    fontSize: '1rem'
+                                                }}>
                                                     {friend?.name}
-                                                    {friend?.supporter && <span className="badge">{text("supporter")}</span>}
+                                                    {friend?.supporter && <span style={{ 
+                                                        marginLeft: '8px',
+                                                        padding: '2px 6px',
+                                                        background: 'var(--accent)',
+                                                        borderRadius: '3px',
+                                                        fontSize: '0.8rem'
+                                                    }}>{text("supporter")}</span>}
                                                 </span>
                                             </div>
-                                            <div style={{ float: 'right' }}>
-                                                <button onClick={() => handleAccept(friend.id)} className={"accept-button"}>✔</button>
-                                                <button onClick={() => handleDecline(friend.id)} className={"decline-button"}>✖</button>
+                                            <div style={{ display: 'flex', gap: '8px' }}>
+                                                <button 
+                                                    onClick={() => handleAccept(friend.id)} 
+                                                    style={{
+                                                        padding: '8px 12px',
+                                                        background: 'var(--gradButton)',
+                                                        border: '1px solid var(--border)',
+                                                        borderRadius: '5px',
+                                                        color: 'var(--text)',
+                                                        cursor: 'pointer',
+                                                        fontFamily: '"Kode Mono", monospace'
+                                                    }}
+                                                >✔</button>
+                                                <button 
+                                                    onClick={() => handleDecline(friend.id)} 
+                                                    style={{
+                                                        padding: '8px 12px',
+                                                        background: 'var(--gradButton)',
+                                                        border: '1px solid var(--border)',
+                                                        borderRadius: '5px',
+                                                        color: 'var(--text)',
+                                                        cursor: 'pointer',
+                                                        fontFamily: '"Kode Mono", monospace'
+                                                    }}
+                                                >✖</button>
                                             </div>
                                         </div>
                                     ))}
@@ -201,17 +297,51 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
                         {/* Sent Requests Section */}
                         {sentRequests.length > 0 && (
                             <div style={{ marginBottom: '30px' }}>
-                                <h3>{text("viewSentRequests", { cnt: sentRequests.length })}</h3>
-                                <div className="friends-list">
+                                <h3 style={{ 
+                                    color: 'var(--text)', 
+                                    marginBottom: '15px',
+                                    fontFamily: '"Kode Mono", monospace',
+                                    fontSize: '1.1rem'
+                                }}>{text("viewSentRequests", { cnt: sentRequests.length })}</h3>
+                                <div className="friends-list" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                     {sentRequests.map(friend => (
-                                        <div key={friend.id} className="friend-card">
-                                            <div className="friend-details">
-                                                <span className="friend-name">
+                                        <div key={friend.id} style={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            padding: '15px',
+                                            background: 'var(--surface)',
+                                            border: '1px solid var(--border)',
+                                            borderRadius: '8px'
+                                        }}>
+                                            <div>
+                                                <span style={{ 
+                                                    color: 'var(--text)',
+                                                    fontFamily: '"Kode Mono", monospace',
+                                                    fontSize: '1rem'
+                                                }}>
                                                     {friend?.name}
-                                                    {friend?.supporter && <span className="badge">{text("supporter")}</span>}
+                                                    {friend?.supporter && <span style={{ 
+                                                        marginLeft: '8px',
+                                                        padding: '2px 6px',
+                                                        background: 'var(--accent)',
+                                                        borderRadius: '3px',
+                                                        fontSize: '0.8rem'
+                                                    }}>{text("supporter")}</span>}
                                                 </span>
                                             </div>
-                                            <button onClick={() => handleCancel(friend.id)} className={"cancel-button"}>✖</button>
+                                            <button 
+                                                onClick={() => handleCancel(friend.id)} 
+                                                style={{
+                                                    padding: '8px 12px',
+                                                    background: 'var(--gradButton)',
+                                                    border: '1px solid var(--border)',
+                                                    borderRadius: '5px',
+                                                    color: 'var(--text)',
+                                                    cursor: 'pointer',
+                                                    fontFamily: '"Kode Mono", monospace'
+                                                }}
+                                            >✖</button>
                                         </div>
                                     ))}
                                 </div>
@@ -220,25 +350,82 @@ export default function FriendsModal({ shown, onClose, session, ws, canSendInvit
 
                         {/* Friends List Section */}
                         <div>
-                            <h3>{text("friends", { cnt: friends.length })}</h3>
+                            <h3 style={{ 
+                                color: 'var(--text)', 
+                                marginBottom: '15px',
+                                fontFamily: '"Kode Mono", monospace',
+                                fontSize: '1.1rem'
+                            }}>{text("friends", { cnt: friends.length })}</h3>
                             {friends.length === 0 && (
-                                <div>{text("noFriends")}</div>
+                                <div style={{ 
+                                    color: 'var(--textSecondary)',
+                                    fontFamily: '"Kode Mono", monospace',
+                                    padding: '20px'
+                                }}>{text("noFriends")}</div>
                             )}
-                            <div className="friends-list">
+                            <div className="friends-list" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                 {friends.sort((a, b) => b.online - a.online).map(friend => (
-                                    <div key={friend.id} className="friend-card">
-                                        <div className="friend-details">
-                                            <span className="friend-name">
+                                    <div key={friend.id} style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        padding: '15px',
+                                        background: 'var(--surface)',
+                                        border: '1px solid var(--border)',
+                                        borderRadius: '8px'
+                                    }}>
+                                        <div>
+                                            <div style={{ 
+                                                color: 'var(--text)',
+                                                fontFamily: '"Kode Mono", monospace',
+                                                fontSize: '1rem',
+                                                marginBottom: '5px'
+                                            }}>
                                                 {friend?.name}
-                                                {friend?.supporter && <span className="badge">{text("supporter")}</span>}
+                                                {friend?.supporter && <span style={{ 
+                                                    marginLeft: '8px',
+                                                    padding: '2px 6px',
+                                                    background: 'var(--accent)',
+                                                    borderRadius: '3px',
+                                                    fontSize: '0.8rem'
+                                                }}>{text("supporter")}</span>}
+                                            </div>
+                                            <span style={{ 
+                                                color: friend?.online ? 'var(--text)' : 'var(--textMuted)',
+                                                fontSize: '0.9rem',
+                                                fontFamily: '"Kode Mono", monospace'
+                                            }}>
+                                                {friend?.online ? text("online") : text("offline")}
                                             </span>
-                                            <span className="friend-state">{friend?.online ? text("online") : text("offline")}</span>
                                         </div>
-                                        <div style={{ float: 'right' }}>
+                                        <div style={{ display: 'flex', gap: '8px' }}>
                                             {canSendInvite && friend.online && friend.socketId && (
-                                                <button onClick={() => sendInvite(friend.socketId)} className={"invite-button"}>{text("invite")}</button>
+                                                <button 
+                                                    onClick={() => sendInvite(friend.socketId)} 
+                                                    style={{
+                                                        padding: '8px 12px',
+                                                        background: 'var(--gradButton)',
+                                                        border: '1px solid var(--border)',
+                                                        borderRadius: '5px',
+                                                        color: 'var(--text)',
+                                                        cursor: 'pointer',
+                                                        fontFamily: '"Kode Mono", monospace',
+                                                        fontSize: '0.9rem'
+                                                    }}
+                                                >{text("invite")}</button>
                                             )}
-                                            <button onClick={() => handleRemove(friend.id)} className={"cancel-button"}>✖</button>
+                                            <button 
+                                                onClick={() => handleRemove(friend.id)} 
+                                                style={{
+                                                    padding: '8px 12px',
+                                                    background: 'var(--gradButton)',
+                                                    border: '1px solid var(--border)',
+                                                    borderRadius: '5px',
+                                                    color: 'var(--text)',
+                                                    cursor: 'pointer',
+                                                    fontFamily: '"Kode Mono", monospace'
+                                                }}
+                                            >✖</button>
                                         </div>
                                     </div>
                                 ))}
