@@ -48,7 +48,7 @@ export default function InfoModal({ shown, onClose }) {
                                 marginBottom: '10px'
                             }}
                         >
-                            {text("welcomeToWorldGuessr")}!
+                            {text("welcomeToAtlas")}!
                         </h1>
 
                         <p
@@ -115,7 +115,7 @@ export default function InfoModal({ shown, onClose }) {
 
                             }}
                         >
-                            {text("welcomeToWorldGuessr")}!
+                            {text("welcomeToAtlas")}!
                         </h1>
 
                         <p

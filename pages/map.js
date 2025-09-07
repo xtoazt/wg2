@@ -375,7 +375,7 @@ export default function MapPage({ }) {
         )}
 
         <div className={styles.branding}>
-          <h1>WorldGuessr</h1>
+          <h1>Atlas</h1>
           <center>
             <button onClick={() => window.location.href=`/${
               window.location.search.includes('crazygames') ? '?crazygames=true' : ''

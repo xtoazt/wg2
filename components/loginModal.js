@@ -38,10 +38,12 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
       );
 
       const data = await response.json();
+      console.log('[Login] Response data:', data);
 
       if (data.error) {
+        console.error('[Login] Error response:', data.error);
         toast.error(data.error);
-      } else {
+      } else if (data.secret) {
         // Store session
         window.localStorage.setItem("wg_secret", data.secret);
         onLogin({ token: data });
@@ -49,6 +51,9 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
         onClose();
         setUsername('');
         setPassword('');
+      } else {
+        console.error('[Login] No secret in response:', data);
+        toast.error('Authentication failed - no session data received');
       }
     } catch (error) {
       console.error('Auth error:', error);
