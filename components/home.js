@@ -2206,7 +2206,7 @@ export default function Home({ }) {
                     )}
                 </div>
 
-                {screen == "home" &&
+                {screen == "home" && (
                     <div className={`home__content g2_modal ${screen !== "home" ? "hidden" : "cshown"} `}>
                         {onboardingCompleted && (
                             <div className="homepage-container">
