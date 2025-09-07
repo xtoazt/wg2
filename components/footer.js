@@ -35,7 +35,7 @@ export default function Footer() {
           e.target.style.color = 'white';
         }}
       >
-        atlas. (formerly Worldguessr2)
+        atlas.
       </button>
       
       {isOpen && (
@@ -50,11 +50,12 @@ export default function Footer() {
           padding: '8px 12px',
           fontSize: '11px',
           color: 'white',
-          whiteSpace: 'nowrap',
+          whiteSpace: 'pre-line',
           fontFamily: '"Kode Mono", monospace',
           boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
         }}>
-          atlas. (formerly Worldguessr2) by Rohan
+          atlas. by Rohan
+          formerly Worldguessr2
         </div>
       )}
     </div>

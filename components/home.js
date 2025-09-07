@@ -2211,7 +2211,6 @@ export default function Home({ }) {
                         {onboardingCompleted && (
                             <div className="homepage-container">
                                 <h1 className="homepage-title">atlas.</h1>
-                                <p style={{ fontSize: '12px', opacity: 0.7, marginTop: '8px' }}>formerly Worldguessr2</p>
                                 
                                 <div className="main-buttons">
                                     <button 
