@@ -88,15 +88,6 @@ export default function FriendsPage() {
                 showLoginModal={false}
                 setShowSuggestLoginModal={() => {}}
                 showSuggestLoginModal={false}
-                setAccountModalOpen={() => {}}
-                setAccountModalPage={() => {}}
-                accountModalPage="profile"
-                setScreen={() => {}}
-                screen="friends"
-                setShowLoginModal={() => {}}
-                showLoginModal={false}
-                setShowSuggestLoginModal={() => {}}
-                showSuggestLoginModal={false}
             />
 
             <div className="friends-page">
