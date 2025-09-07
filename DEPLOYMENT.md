@@ -146,7 +146,7 @@ fetch('/api/clues', {
 - **Authentication System Simplified**: Removed Google OAuth and CrazyGames, using pure MongoDB username/password authentication
 - **External Integrations Removed**: Removed Discord, YouTube, and other external platform integrations
 - **UI Redesigned**: Minimal monochromatic design with clean, modern interface
-- **Rebranded**: Now called "atlas." with credit to Rohan
+- **Rebranded**: Now called "atlas." (formerly "Worldguessr2") with credit to Rohan
 
 ## Deployment Steps
 
