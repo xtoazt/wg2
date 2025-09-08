@@ -5452,10 +5452,12 @@ div:hover .elo-badge {
     justify-content: center;
     min-height: 100vh;
     padding: 2rem;
-    gap: 4rem;
+    gap: 2rem;
     position: relative;
     z-index: 1;
     animation: fadeInUp 1s ease-out;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .homepage-content {
@@ -5463,8 +5465,8 @@ div:hover .elo-badge {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex: 1;
-    max-width: 400px;
+    flex: 0 0 350px;
+    max-width: 350px;
     text-align: center;
 }
 
@@ -5473,13 +5475,14 @@ div:hover .elo-badge {
     align-items: center;
     justify-content: center;
     flex: 1;
-    max-width: 600px;
-    min-height: 400px;
+    max-width: 800px;
+    min-height: 500px;
+    width: 100%;
 }
 
 .atlas-animation-gif {
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     height: auto;
     border-radius: 20px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5712,27 +5715,27 @@ div:hover .elo-badge {
 @media (max-width: 768px) {
     .homepage-container {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
         padding: 1rem;
+        max-width: 100%;
     }
-    
+
     .homepage-content {
         max-width: 100%;
+        flex: none;
         order: 1;
     }
-    
+
     .homepage-gif {
         max-width: 100%;
         order: 2;
+        min-height: 400px;
+        width: 100%;
     }
     
     .atlas-animation-gif {
-        max-width: 350px;
-    }
-    
-    .homepage-gif {
-        min-height: 300px;
         max-width: 100%;
+        width: 100%;
     }
     
     .homepage-title {
