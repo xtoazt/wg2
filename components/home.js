@@ -211,42 +211,6 @@ export default function Home({ }) {
 
 
     const [config, setConfig] = useState(null);
-    const [eloData, setEloData] = useState(null);
-    const [animatedEloDisplay, setAnimatedEloDisplay] = useState(0);
-    useEffect(() => {
-        if (!session?.token?.username) return;
-        if (!accountModalOpen && window.firstFetchElo) return;
-
-        fetch(clientConfig().apiUrl + "/api/eloRank?username=" + session?.token?.username).then((res) => res.json()).then((data) => {
-            setEloData(data)
-            window.firstFetchElo = true;
-        }).catch((e) => {
-            window.firstFetchElo = true;
-        });
-
-
-
-    }, [session?.token?.username, accountModalOpen])
-    useEffect(() => {
-        if (!eloData?.elo) return;
-
-        const interval = setInterval(() => {
-            setAnimatedEloDisplay((prev) => {
-                prev = parseInt(prev.toString().replace(/,/g, ""));
-                const diff = eloData.elo - prev;
-
-                // Determine the step based on the difference
-                const step = Math.ceil(Math.abs(diff) / 10) || 1; // Minimum step is 1
-
-                // Smooth animation
-                if (diff > 0) return Math.min(prev + step, eloData.elo);
-                if (diff < 0) return Math.max(prev - step, eloData.elo);
-                return prev;
-            });
-        }, 10);
-
-        return () => clearInterval(interval);
-    }, [eloData?.elo]);
     useEffect(() => {
         const clientConfigData = clientConfig();
         setConfig(clientConfigData);
@@ -2026,7 +1990,7 @@ export default function Home({ }) {
             <HeadContent text={text} inCoolMathGames={inCoolMathGames} inCrazyGames={inCrazyGames} />
 
             <AccountModal inCrazyGames={inCrazyGames} shown={accountModalOpen} session={session} setAccountModalOpen={setAccountModalOpen}
-                eloData={eloData} accountModalPage={accountModalPage} setAccountModalPage={setAccountModalPage}
+                accountModalPage={accountModalPage} setAccountModalPage={setAccountModalPage}
                 ws={ws} options={options}
 
             />
@@ -2186,15 +2150,6 @@ export default function Home({ }) {
 
 
                 {/* ELO/League button */}
-                <div>
-                    {screen === "home" && !mapModal && session && session?.token?.secret && (
-                        <button className="gameBtn leagueBtn" onClick={() => { setAccountModalOpen(true); setAccountModalPage("elo"); }}
-                                               style={{ backgroundColor: eloData?.league?.color }}
-                        >
-                            {!eloData ? '...' : animatedEloDisplay} ELO {eloData?.league?.emoji}
-                        </button>
-                    )}
-                </div>
 
                 {screen == "home" && (
                     <div className={`home__content g2_modal ${screen !== "home" ? "hidden" : "cshown"} `}>
