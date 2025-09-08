@@ -161,6 +161,22 @@ html {
     color: var(--text);
 }
 
+/* Ensure all pages are dark mode */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
+/* Override any light backgrounds */
+.page, .container, .main, .content {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+}
+
 /* Leaflet map optimizations for sharp rendering */
 .leaflet-container {
     image-rendering: -webkit-optimize-contrast;

@@ -3,17 +3,8 @@
     "api/auth.js": {
       "maxDuration": 30
     },
-    "api/auth-direct.js": {
-      "maxDuration": 30
-    },
     "api/friends.js": {
       "maxDuration": 30
-    },
-    "api/auth-new.js": {
-      "maxDuration": 30
-    },
-    "api/test.js": {
-      "maxDuration": 10
     },
     "api/auth-simple.js": {
       "maxDuration": 10
@@ -26,9 +17,6 @@
     },
     "api/eloRank.js": {
       "maxDuration": 30
-    },
-    "api/eloRank-test.js": {
-      "maxDuration": 10
     },
     "api/leaderboard.js": {
       "maxDuration": 30
