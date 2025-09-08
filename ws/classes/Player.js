@@ -164,27 +164,12 @@ export default class Player {
           // make sure the user is not already logged in (only on prod)
             for (const p of players.values()) {
               if (p.accountId === valid._id.toString()) {
-                // this.send({
-                //   type: 'error',
-                //   message: 'uac'
-                // });
-                // this.ws.close();
-                // console.log('User already connected:', valid.username);
-                // return;
-
-                // disconnect the other player
-                p.send({
-                  type: 'error',
-                  message: 'uac'
-                });
-
-                try {
-                p.ws.close();
-                } catch(e) {}
-                console.log('User already connected:', valid.username
-                );
-
+                // Gracefully handle duplicate login - just transfer the session
+                console.log('User already connected, transferring session:', valid.username);
+                
+                // Transfer the session to the new connection
                 handleReconnect(p.id, p.accountId);
+                return; // Exit early since we've handled the reconnection
               }
             }
             this.verified = true;

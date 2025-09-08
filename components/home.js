@@ -1265,13 +1265,12 @@ export default function Home({ }) {
                 }
                 if (data.failedToLogin) {
                     window.dontReconnect = true;
-                    // logout
-                    signOut()
-
+                    // Don't automatically sign out - let user retry
+                    console.log('Login failed, but keeping session for retry');
                 }
                 ws.close();
 
-                toast(data.message === 'uac' ? text('userAlreadyConnected') : data.message, { type: 'error' });
+                toast(data.message === 'uac' ? 'Session transferred to new connection' : data.message, { type: 'info' });
 
             } else if (data.type === "game") {
                 // Dispatch global event to close any open modals/screens
