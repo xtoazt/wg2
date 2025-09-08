@@ -24,6 +24,12 @@
     "api/game.js": {
       "maxDuration": 30
     },
+    "api/eloRank.js": {
+      "maxDuration": 30
+    },
+    "api/eloRank-test.js": {
+      "maxDuration": 10
+    },
     "api/leaderboard.js": {
       "maxDuration": 30
     },

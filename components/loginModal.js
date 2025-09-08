@@ -43,7 +43,10 @@ export default function LoginModal({ isOpen, onClose, onLogin }) {
       if (data.error) {
         console.error('[Login] Error response:', data.error);
         toast.error(data.error);
-      } else if (data.secret) {
+        return; // Don't proceed if there's an error
+      } 
+      
+      if (data.secret) {
         // Store session
         window.localStorage.setItem("wg_secret", data.secret);
         onLogin({ token: data });

@@ -217,7 +217,7 @@ export default function Home({ }) {
         if (!session?.token?.username) return;
         if (!accountModalOpen && window.firstFetchElo) return;
 
-        fetch(clientConfig().apiUrl + "/api/eloRank?username=" + session?.token?.username).then((res) => res.json()).then((data) => {
+        fetch(clientConfig().apiUrl + "/api/eloRank-test?username=" + session?.token?.username).then((res) => res.json()).then((data) => {
             setEloData(data)
             window.firstFetchElo = true;
         }).catch((e) => {
