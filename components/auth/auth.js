@@ -80,7 +80,7 @@ export function useSession() {
     
     const apiUrl = clientConfig().apiUrl;
     retryManager.fetchWithRetry(
-      apiUrl + "/api/auth-simple",
+      apiUrl + "/api/auth",
       {
         method: "POST",
         headers: {
